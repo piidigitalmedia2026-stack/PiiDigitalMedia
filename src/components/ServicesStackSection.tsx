@@ -172,16 +172,8 @@ function ServiceStackCard({ service, index, total }: ServiceCardProps) {
 }
 
 export function ServicesStackSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  // Overall scroll progress of the entire section to drive the progress indicator
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
-    <section ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-16">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
         
         {/* Left Sticky Column on Desktop */}
@@ -200,36 +192,6 @@ export function ServicesStackSection() {
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               Every digital marketing and web presence touchpoint—from school websites and local search authority to daily reels, creatives, and admission campaigns—managed with academic rigor.
             </p>
-          </div>
-
-          {/* Scroll Deck Hint & Progress Meter */}
-          <div className="p-4 rounded-2xl bg-white border border-[#CBD5C8]/80 shadow-xs space-y-3">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-[#0D151D]">Scroll Stacking Deck</span>
-              <span className="font-mono text-[11px] text-slate-500">{MAJOR_SERVICES.length} Major Services</span>
-            </div>
-            
-            {/* Live Progress Bar */}
-            <div className="w-full h-1.5 bg-[#FAF9F5] border border-[#CBD5C8]/60 rounded-full overflow-hidden">
-              <motion.div
-                style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
-                className="h-full bg-[#6C836F] rounded-full"
-              />
-            </div>
-            <p className="text-[11px] text-slate-500 leading-tight">
-              Cards fix on top and recede into depth as you scroll through each service.
-            </p>
-          </div>
-
-          {/* Directory Link */}
-          <div>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#FAF9F5] border border-[#CBD5C8] hover:border-[#6C836F] text-[#0D151D] hover:text-[#2F523E] font-bold text-xs sm:text-sm transition-all shadow-2xs hover:shadow-xs group"
-            >
-              <span>Browse Full Directory (All {SERVICES.length} Services)</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
           </div>
         </div>
 
