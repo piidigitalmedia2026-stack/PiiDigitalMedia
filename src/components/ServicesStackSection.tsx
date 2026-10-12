@@ -1,0 +1,251 @@
+"use client";
+
+import React, { useRef } from "react";
+import Link from "next/link";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  Share2,
+  Layers,
+  Video,
+  Target,
+  Search,
+  Megaphone,
+  Globe,
+  TrendingUp,
+  Compass,
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
+import { SERVICES, WHATSAPP_URL } from "@/data/content";
+import { ServiceDetail } from "@/types";
+
+const ICONS: Record<string, LucideIcon> = {
+  Share2,
+  Layers,
+  Video,
+  Target,
+  Search,
+  Megaphone,
+  Globe,
+  TrendingUp,
+  Compass,
+};
+
+const MAJOR_SERVICE_SLUGS = [
+  "website-content-updates",
+  "digital-marketing",
+  "admission-campaigns",
+];
+
+const MAJOR_SERVICES = MAJOR_SERVICE_SLUGS
+  .map((slug) => SERVICES.find((s) => s.slug === slug))
+  .filter((s): s is ServiceDetail => Boolean(s));
+
+interface ServiceCardProps {
+  service: ServiceDetail;
+  index: number;
+  total: number;
+}
+
+function ServiceStackCard({ service, index, total }: ServiceCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isLast = index === total - 1;
+  const reduceMotion = useReducedMotion();
+
+  // Track this card's scroll progress through the deck
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Scale down and push back into depth as subsequent cards stack over it
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduceMotion || isLast ? [1, 1] : [1, 0.94]
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduceMotion || isLast ? [1, 1] : [1, 0.6]
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduceMotion || isLast ? [0, 0] : [0, -8]
+  );
+
+  const Icon = ICONS[service.icon] ?? Globe;
+  const numStr = String(index + 1).padStart(2, "0");
+  const totalStr = String(total).padStart(2, "0");
+
+  return (
+    <div
+      ref={cardRef}
+      className="sticky mb-10 sm:mb-20 last:mb-[30vh] sm:last:mb-[40vh] [--card-deck-top:84px] lg:[--card-deck-top:116px]"
+      style={{
+        // Staggered top offset so earlier card tabs peek cleanly below the header
+        // Desktop header is 88px tall, so 116px+ provides clean margin and full visibility
+        top: `calc(var(--card-deck-top, 116px) + ${index * 10}px)`,
+        zIndex: index + 10,
+      }}
+    >
+      <motion.div
+        style={{
+          scale,
+          opacity,
+          y,
+          transformOrigin: "top center",
+        }}
+        className="w-full bg-white rounded-3xl p-5 sm:p-8 border border-[#CBD5C8]/90 shadow-[0_16px_40px_rgba(13,21,29,0.08)] hover:shadow-[0_20px_50px_rgba(13,21,29,0.12)] transition-shadow duration-300"
+      >
+        {/* Top bar: Step Counter & Category */}
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#CBD5C8]/50 mb-4 sm:mb-5">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs font-bold text-[#6C836F] tracking-wider">
+              {numStr} / {totalStr}
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#2F523E] bg-[#EBF1E9] px-2.5 py-0.5 rounded-full">
+              {service.category}
+            </span>
+          </div>
+
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EBF1E9] text-[#2F523E] flex items-center justify-center shrink-0 border border-[#CBD5C8]/60 shadow-2xs">
+            <Icon className="w-5 h-5" />
+          </div>
+        </div>
+
+        {/* Title & Core Headline */}
+        <div className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-2xl font-extrabold text-[#0D151D] tracking-tight">
+            {service.shortTitle}
+          </h3>
+          <p className="text-xs sm:text-sm font-semibold text-[#6C836F] leading-snug">
+            {service.headline}
+          </p>
+        </div>
+
+        {/* Summary Description */}
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 sm:mb-5">
+          {service.summary}
+        </p>
+
+        {/* 3 Core Deliverables Checklist */}
+        <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6 bg-[#FAF9F5] p-3 sm:p-4 rounded-2xl border border-[#CBD5C8]/60">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+            Core Institutional Deliverables:
+          </div>
+          {service.deliverables.slice(0, 3).map((item, idx) => (
+            <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#2F523E] shrink-0 mt-0.5" />
+              <span className="leading-snug">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Button & WhatsApp link */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-[#CBD5C8]/40">
+          <Link
+            href={`/services/${service.slug}`}
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#0D151D] hover:bg-[#182620] text-white font-semibold text-xs sm:text-sm transition-all shadow-sm hover:shadow group"
+          >
+            <span>Explore Service Blueprint</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+
+          <a
+            href={`${WHATSAPP_URL}?text=Hi%20PII%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(service.shortTitle)}%20for%20our%20school.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#2F523E] hover:text-[#0D151D] hover:underline py-1 px-2.5 rounded-full hover:bg-[#FAF9F5] transition-colors"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#6C836F]" />
+            <span>Consult on WhatsApp</span>
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+export function ServicesStackSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Overall scroll progress of the entire section to drive the progress indicator
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  return (
+    <section ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+        
+        {/* Left Sticky Column on Desktop */}
+        <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+          <div className="space-y-3">
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#6C836F]" />
+              <span>Services Directory</span>
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+              Services Built for{" "}
+              <span className="font-serif italic font-normal text-[#6C836F]">
+                Institutions
+              </span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Every digital marketing and web presence touchpoint—from school websites and local search authority to daily reels, creatives, and admission campaigns—managed with academic rigor.
+            </p>
+          </div>
+
+          {/* Scroll Deck Hint & Progress Meter */}
+          <div className="p-4 rounded-2xl bg-white border border-[#CBD5C8]/80 shadow-xs space-y-3">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-bold text-[#0D151D]">Scroll Stacking Deck</span>
+              <span className="font-mono text-[11px] text-slate-500">{MAJOR_SERVICES.length} Major Services</span>
+            </div>
+            
+            {/* Live Progress Bar */}
+            <div className="w-full h-1.5 bg-[#FAF9F5] border border-[#CBD5C8]/60 rounded-full overflow-hidden">
+              <motion.div
+                style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
+                className="h-full bg-[#6C836F] rounded-full"
+              />
+            </div>
+            <p className="text-[11px] text-slate-500 leading-tight">
+              Cards fix on top and recede into depth as you scroll through each service.
+            </p>
+          </div>
+
+          {/* Directory Link */}
+          <div>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#FAF9F5] border border-[#CBD5C8] hover:border-[#6C836F] text-[#0D151D] hover:text-[#2F523E] font-bold text-xs sm:text-sm transition-all shadow-2xs hover:shadow-xs group"
+            >
+              <span>Browse Full Directory (All {SERVICES.length} Services)</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column: Direct Stacking Cards Stream */}
+        <div className="lg:col-span-7 relative pb-10 sm:pb-20">
+          {MAJOR_SERVICES.map((service, index) => (
+            <ServiceStackCard
+              key={service.slug}
+              service={service}
+              index={index}
+              total={MAJOR_SERVICES.length}
+            />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}

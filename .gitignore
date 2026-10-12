@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Apps Script copy with the webhook secret filled in
+scripts/google-sheet-webhook.local.gs
+
+# Local leads backup
+/data/

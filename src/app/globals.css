@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-newsreader), "Newsreader", Georgia, serif;
+  --font-display: var(--font-playfair), "Playfair Display", "Newsreader", Georgia, serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF9F5;
+  --foreground: #0D151D;
+  --color-charcoal: #0D151D;
+  --color-sage: #6C836F;
+  --color-sage-light: #EBF1E9;
+  --color-sage-border: #CBD5C8;
+  --color-mint-pill: #DCF4E7;
+  --color-mint-text: #186641;
+  --card-bg: #FFFFFF;
+  --border-subtle: #E2E8DF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* clip (not hidden) so sticky sections keep working */
+html,
 body {
-  background: var(--background);
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #0D151D;
+  color: #FFFFFF;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5C8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6C836F;
+}
+
+/* Soft paper texture & subtle grid */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(13, 21, 29, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 21, 29, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(13, 21, 29, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

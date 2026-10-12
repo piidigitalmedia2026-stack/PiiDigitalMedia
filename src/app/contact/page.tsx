@@ -1,0 +1,134 @@
+import React from "react";
+import { Metadata } from "next";
+import { getMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164, WHATSAPP_URL } from "@/data/content";
+import { ContactForm } from "@/components/ContactForm";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Sparkles,
+  MessageSquare
+} from "lucide-react";
+import { RevealSection } from "@/components/Motion";
+
+export const metadata: Metadata = getMetadata({
+  title: "Contact Us",
+  description: "Contact PII Digital Media about digital marketing for your school. Call or WhatsApp +91 79899 95014.",
+  path: "/contact",
+  keywords: ["education marketing agency contact", "book school marketing strategy call", "school admissions audit"]
+});
+
+export default function ContactPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://piidigitalmedia.com" },
+    { name: "Contact", url: "https://piidigitalmedia.com/contact" }
+  ]);
+
+  return (
+    <div className="flex flex-col gap-16 sm:gap-24 pb-24 overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* Hero */}
+      <RevealSection className="pt-12 sm:pt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
+            <Sparkles className="w-3.5 h-3.5 text-[#6C836F]" />
+            <span>Contact</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+            Let’s Grow Your Institution Together.
+          </h1>
+
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            Tell us about your school and what you need help with, and we will get back to you.
+          </p>
+        </div>
+      </RevealSection>
+
+      {/* Main Grid */}
+      <RevealSection className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: Direct Agency Channels & Assurance */}
+          <div className="lg:col-span-5 space-y-8">
+            
+            <div className="p-8 rounded-3xl bg-[#0D151D] text-white space-y-6 shadow-xl border border-[#1C2834]">
+              <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#10B981]">
+                Direct Contact Channels
+              </span>
+
+              <div className="space-y-4 text-xs sm:text-sm">
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-[#6C836F] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-slate-400 block text-xs">Phone & WhatsApp</span>
+                    <a href={`tel:${CONTACT_PHONE_E164}`} className="font-bold text-white text-base hover:underline">{CONTACT_PHONE_DISPLAY}</a>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="pt-4 border-t border-[#1C2834]">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 rounded-full bg-[#DCF4E7] hover:bg-[#cdeedc] text-[#186641] font-bold text-xs flex items-center justify-center gap-2 transition-colors"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Chat on WhatsApp Directly</span>
+                </a>
+              </div>
+            </div>
+
+            {/* What Happens Next Card */}
+            <div className="p-8 rounded-3xl bg-white border border-[#CBD5C8]/80 shadow-sm space-y-4">
+              <h3 className="text-base font-bold text-[#0D151D]">
+                What Happens After You Submit:
+              </h3>
+
+              <div className="space-y-3 text-xs text-slate-600">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span><strong>1. Catchment Diagnostic:</strong> We run an initial search audit of your district before our call.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span><strong>2. 45-Min Video Discovery:</strong> We discuss your admissions vacancies and historical conversion bottlenecks.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span><strong>3. Custom Growth Blueprint:</strong> We present a bespoke roadmap with clear milestones and media budget projections.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#FAF9F5] border border-[#CBD5C8]/80 flex items-start gap-3">
+              <ShieldCheck className="w-5 h-5 text-[#6C836F] shrink-0 mt-0.5" />
+              <div className="text-xs text-slate-600">
+                <strong className="text-[#0D151D] block font-bold">Strict Institutional Confidentiality</strong>
+                All student numbers, fee metrics, and trustee discussions remain under strict non-disclosure.
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive Form */}
+          <div className="lg:col-span-7">
+            <ContactForm />
+          </div>
+
+        </div>
+      </RevealSection>
+
+    </div>
+  );
+}
