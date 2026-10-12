@@ -211,7 +211,7 @@ export default function HomePage() {
               Tell Us About <span className="font-serif italic font-normal text-[#6C836F]">Your School</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Share what you need and our school partnership team will get back to you within 24 hours.
+              Share what you need and we will get back to you.
             </p>
 
             <div className="p-4 rounded-2xl bg-[#0D151D] text-white text-xs flex items-center justify-between border border-[#223242] shadow-md">

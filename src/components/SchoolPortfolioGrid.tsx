@@ -102,7 +102,7 @@ export function SchoolPortfolioGrid() {
         <h2 className="text-2xl font-serif font-bold text-[#0D151D] tracking-tight mb-4">
           Real Institutions.{" "}
           <span className="font-serif italic font-normal text-[#6C836F]">
-            Real Growth.
+            Real Work.
           </span>
         </h2>
 
@@ -250,7 +250,7 @@ export function SchoolPortfolioGrid() {
                   </span>
                   {school.website && (
                     <span className="text-[10px] bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded-full font-mono text-white">
-                      Official Partner
+                      Partner School
                     </span>
                   )}
                 </div>

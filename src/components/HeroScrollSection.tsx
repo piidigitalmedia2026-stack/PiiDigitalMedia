@@ -41,7 +41,7 @@ const STORY_PANELS = [
     tag: "Admissions Growth",
     title: "Grow Admissions",
     description:
-      "Convert parent trust, campus visits, and digital inquiries into confirmed, verified student enrollments year after year.",
+      "Support the admission season with planned campaigns, clear admission information, and a simple way for parents to enquire.",
     metric: "Sustainable Enrollment",
   },
 ];
@@ -90,10 +90,12 @@ export function HeroScrollSection() {
 
   const imageScale = useTransform(scrollYProgress, [0, 0.26], [1, 1.06]);
 
-  const bgBlur = useTransform(
+  // Changing a blur radius on scroll re-renders the whole photo every frame.
+  // A pre-blurred copy is painted once and only its opacity is driven by scroll.
+  const bgBlurOpacity = useTransform(
     scrollYProgress,
     [0.18, 0.28, 0.74, 0.86],
-    ["blur(0px)", "blur(18px)", "blur(18px)", "blur(0px)"]
+    [0, 1, 1, 0]
   );
 
   const darkOverlayOpacity = useTransform(
@@ -111,6 +113,11 @@ export function HeroScrollSection() {
     scrollYProgress,
     [0.24, 0.32, 0.72, 0.84],
     [30, 0, 0, -30]
+  );
+  // The story layer covers the whole hero. While it is invisible it must not
+  // take clicks, or it blocks the hero buttons underneath it.
+  const storyPointerEvents = useTransform(scrollYProgress, (v) =>
+    v >= 0.24 && v <= 0.84 ? "auto" : "none"
   );
 
   const progressBarWidth = useTransform(
@@ -155,10 +162,10 @@ export function HeroScrollSection() {
   const mobileScrollBadgeOpacity = useTransform(mobileScrollYProgress, [0.01, 0.08], [1, 0]);
 
   // Mobile blur & dark overlay - stays blurred and dark once applied
-  const mobileBlur = useTransform(
+  const mobileBlurOpacity = useTransform(
     mobileScrollYProgress,
     [0.16, 0.26],
-    ["blur(0px)", "blur(18px)"]
+    [0, 1]
   );
   const mobileDarkOverlayOpacity = useTransform(
     mobileScrollYProgress,
@@ -248,8 +255,8 @@ export function HeroScrollSection() {
               className="absolute top-0 right-0 w-full h-full overflow-hidden will-change-[clip-path]"
             >
               <motion.div
-                style={shouldReduceMotion ? { scale: 1, filter: "none" } : { scale: imageScale, filter: bgBlur }}
-                className="relative w-full h-full will-change-[filter,transform]"
+                style={shouldReduceMotion ? { scale: 1 } : { scale: imageScale }}
+                className="relative w-full h-full will-change-transform"
               >
                 <Image
                   src="/campus-photo-hd.jpg"
@@ -261,6 +268,22 @@ export function HeroScrollSection() {
                   className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-transparent mix-blend-soft-light pointer-events-none" />
+                {!shouldReduceMotion && (
+                  <motion.div
+                    aria-hidden
+                    style={{ opacity: bgBlurOpacity }}
+                    className="absolute inset-0 pointer-events-none will-change-[opacity]"
+                  >
+                    <Image
+                      src="/campus-photo-hd.jpg"
+                      alt=""
+                      fill
+                      quality={75}
+                      sizes="320px"
+                      className="object-cover object-center scale-110 blur-[18px]"
+                    />
+                  </motion.div>
+                )}
               </motion.div>
 
               <motion.div
@@ -328,7 +351,7 @@ export function HeroScrollSection() {
                     <Users className="w-5 h-5 stroke-[1.75]" />
                   </div>
                   <div className="text-[12px] font-semibold text-[#4A5568] leading-tight">
-                    Trusted by<br />Institutions
+                    Working with<br />4 Schools
                   </div>
                 </div>
 
@@ -348,8 +371,8 @@ export function HeroScrollSection() {
 
           {/* Desktop Storytelling Phase (Over blurred background) */}
           <motion.div
-            style={shouldReduceMotion ? { opacity: 1, y: 0, pointerEvents: "auto" } : { opacity: storyOpacity, y: storyY }}
-            className="absolute inset-0 z-30 flex flex-col justify-center px-12 pointer-events-auto"
+            style={shouldReduceMotion ? { opacity: 1, y: 0, pointerEvents: "auto" } : { opacity: storyOpacity, y: storyY, pointerEvents: storyPointerEvents }}
+            className="absolute inset-0 z-30 flex flex-col justify-center px-12"
           >
             <div className="w-full max-w-[1360px] mx-auto flex flex-col justify-center h-full py-8">
               <div className="flex items-end justify-between gap-4 mb-8 shrink-0">
@@ -362,7 +385,7 @@ export function HeroScrollSection() {
                     More Than <span className="font-serif italic font-normal text-[#CBD5C8]">Marketing</span>
                   </h2>
                   <p className="text-sm text-[#CBD5C8] mt-1.5 max-w-xl leading-relaxed">
-                    A disciplined, three-stage journey designed specifically for schools to turn institutional prestige into sustained admissions.
+                    A three-stage approach designed for schools: build the brand, reach the right parents, and support admissions.
                   </p>
                 </div>
 
@@ -388,7 +411,7 @@ export function HeroScrollSection() {
                   return (
                     <div
                       key={panel.number}
-                      className={`rounded-3xl p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden backdrop-blur-2xl ${
+                      className={`rounded-3xl p-7 lg:p-8 flex flex-col justify-between transition-[transform,opacity,border-color,background-color] duration-300 relative overflow-hidden ${
                         isActive
                           ? "bg-[#141F2A]/95 border-2 border-[#6C836F] shadow-2xl shadow-black/50 scale-[1.01]"
                           : "bg-[#0D151D]/80 border border-[#223242] opacity-80"
@@ -519,21 +542,37 @@ export function HeroScrollSection() {
             <motion.div
               style={
                 shouldReduceMotion
-                  ? { scale: 1, filter: "none" }
-                  : { scale: mobilePhotoScale, filter: mobileBlur }
+                  ? { scale: 1 }
+                  : { scale: mobilePhotoScale }
               }
-              className="relative w-full h-full will-change-[transform,filter]"
+              className="relative w-full h-full will-change-transform"
             >
               <Image
                 src="/campus-photo-hd.jpg"
                 alt="Great Schools Grow Here campus"
                 fill
-                priority
+                fetchPriority="high"
                 quality={90}
                 sizes="100vw"
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+              {!shouldReduceMotion && (
+                <motion.div
+                  aria-hidden
+                  style={{ opacity: mobileBlurOpacity }}
+                  className="absolute inset-0 pointer-events-none will-change-[opacity]"
+                >
+                  <Image
+                    src="/campus-photo-hd.jpg"
+                    alt=""
+                    fill
+                    quality={75}
+                    sizes="320px"
+                    className="object-cover object-center scale-110 blur-[18px]"
+                  />
+                </motion.div>
+              )}
             </motion.div>
 
             {/* Dark overlay for Storytelling section */}
@@ -613,8 +652,8 @@ export function HeroScrollSection() {
               </div>
               <div className="flex flex-col items-center justify-center px-1">
                 <Users className="w-3.5 h-3.5 text-[#4A5568] mb-0.5" />
-                <span className="font-bold text-[#0D151D] text-[10.5px] leading-tight">Trusted</span>
-                <span className="text-[#64748B] text-[9px] leading-tight">by Schools</span>
+                <span className="font-bold text-[#0D151D] text-[10.5px] leading-tight">4 Partner</span>
+                <span className="text-[#64748B] text-[9px] leading-tight">Schools</span>
               </div>
               <div className="flex flex-col items-center justify-center px-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#4A5568] mb-0.5" />
@@ -661,7 +700,7 @@ export function HeroScrollSection() {
               </h2>
 
               <p className="text-[12px] sm:text-[12.5px] text-white/80 mt-1 leading-relaxed">
-                Strategic digital presence, parent discovery, and verified enrollment growth.
+                Digital presence, parent discovery, and admission campaigns.
               </p>
             </div>
 
@@ -676,7 +715,7 @@ export function HeroScrollSection() {
                   return (
                     <div key={idx} className="w-1/3 px-1 flex justify-center">
                       <div
-                        className={`w-full max-w-[365px] rounded-3xl bg-gradient-to-b from-white/[0.16] via-white/[0.10] to-white/[0.05] backdrop-blur-2xl border transition-all duration-300 p-5 sm:p-6 shadow-2xl flex flex-col justify-between min-h-[350px] sm:min-h-[380px] ${
+                        className={`w-full max-w-[365px] rounded-3xl bg-gradient-to-b from-white/[0.16] via-white/[0.10] to-white/[0.05] border transition-[opacity,border-color,background-color] duration-300 p-5 sm:p-6 shadow-2xl flex flex-col justify-between min-h-[350px] sm:min-h-[380px] ${
                           isActive
                             ? "border-white/35 bg-white/[0.12] shadow-emerald-950/50"
                             : "border-white/15 opacity-75"

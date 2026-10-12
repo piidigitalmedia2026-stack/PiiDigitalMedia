@@ -119,10 +119,10 @@ export default async function ServiceDetailPage({
           
           <div className="bg-red-50/50 border border-red-200/60 rounded-3xl p-8 space-y-4">
             <div className="text-xs font-bold uppercase tracking-wider text-red-600">
-              The Institutional Challenge
+              The Challenge
             </div>
             <h3 className="text-xl font-bold text-slate-900">
-              Why Traditional Approaches Fail
+              What Usually Goes Wrong
             </h3>
             <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
               {service.challenge}
@@ -131,10 +131,10 @@ export default async function ServiceDetailPage({
 
           <div className="bg-[#EBF1E9]/70 border border-[#DEE7DC] rounded-3xl p-8 space-y-4">
             <div className="text-xs font-bold uppercase tracking-wider text-[#2F523E]">
-              The PII Strategic Intervention
+              Our Approach
             </div>
             <h3 className="text-xl font-bold text-[#0D151D]">
-              Our Education-Focused Solution
+              How We Handle It
             </h3>
             <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
               {service.solution}
@@ -154,7 +154,7 @@ export default async function ServiceDetailPage({
               Scope of Deliverables
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Every deliverable is produced with strict adherence to institutional standards, safeguarding your leadership&apos;s reputation.
+              What is included depends on the scope agreed with each school.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -189,12 +189,12 @@ export default async function ServiceDetailPage({
       {/* 4-Step Process Workflow */}
       <RevealSection className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#6C836F]">Execution Discipline</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#6C836F]">Process</span>
           <h2 className="text-3xl font-extrabold text-[#0D151D] tracking-tight">
-            How We Execute This Practice
+            How the Work Runs
           </h2>
           <p className="text-slate-600 text-sm">
-            A structured 4-step workflow that keeps institutional leadership informed without micromanagement.
+            Four steps, with the school kept informed at each one.
           </p>
         </div>
 
@@ -216,7 +216,7 @@ export default async function ServiceDetailPage({
             Discuss {service.title} for Your Campus
           </h2>
           <p className="text-slate-600 text-sm max-w-lg mx-auto">
-            Our education strategy team will prepare a customized assessment and proposal.
+            Tell us about your school and what you need help with.
           </p>
         </div>
         <ContactForm defaultService={service.shortTitle} />

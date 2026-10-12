@@ -61,7 +61,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PII Digital Media — Great Schools Deserve to Be Seen",
     description: "Digital marketing for schools.",
-    creator: "@piidigitalmedia"
   }
 };
 

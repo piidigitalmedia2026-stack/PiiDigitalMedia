@@ -53,7 +53,6 @@ export function getMetadata({
       card: "summary",
       title: fullTitle,
       description,
-      creator: "@piidigitalmedia",
       images: [`${baseUrl}/logo.webp`],
     },
     robots: {

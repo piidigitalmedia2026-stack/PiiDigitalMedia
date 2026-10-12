@@ -12,12 +12,11 @@ const staggerParent: Variants = {
 };
 
 const staggerChild: Variants = {
-  hidden: { opacity: 0, y: 32, scale: 0.96, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 32, scale: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)",
     transition: { duration: 0.7, ease: EASE },
   },
 };
@@ -28,15 +27,19 @@ type BaseProps = {
   id?: string;
 };
 
-/** A <section> that fades, dissolves blur, and rises into place the first time it scrolls into view. */
+/**
+ * A <section> that fades and rises into place the first time it scrolls into view.
+ * Only opacity and transform are animated: animating a blur filter on a whole
+ * section repaints it every frame and makes scrolling stutter.
+ */
 export function RevealSection({ children, className, id }: BaseProps) {
   const reduce = useReducedMotion();
   return (
     <motion.section
       id={id}
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 36, filter: "blur(4px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={reduce ? false : { opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT}
       transition={{ duration: 0.8, ease: EASE }}
     >
@@ -51,8 +54,8 @@ export function Reveal({ children, className, delay = 0 }: BaseProps & { delay?:
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 28, filter: "blur(4px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={reduce ? false : { opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT}
       transition={{ duration: 0.7, ease: EASE, delay }}
     >

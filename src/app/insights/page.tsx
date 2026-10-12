@@ -1,15 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@/components/Logo";
 import { Metadata } from "next";
 import { getMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 import { INSIGHTS_ARTICLES } from "@/data/content";
-import { Layers, ArrowRight, Clock, Calendar, Sparkles } from "lucide-react";
+import { Layers, ArrowRight, Clock, Sparkles } from "lucide-react";
 import { RevealSection } from "@/components/Motion";
 
 export const metadata: Metadata = getMetadata({
   title: "Insights & Guides for Schools",
-  description: "Executive research, parent decision psychology, local SEO tutorials, and admissions calendar blueprints for school leaders, trustees, and education marketers.",
+  description: "Practical guides for schools on how parents choose a school, planning the admission season, local SEO, and measuring marketing.",
   path: "/insights",
   keywords: ["school admission marketing insights", "education branding guide", "school SEO strategy"]
 });
@@ -32,15 +32,15 @@ export default function InsightsIndexPage() {
         <div className="max-w-3xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
             <Layers className="w-3.5 h-3.5 text-[#6C836F]" />
-            <span>The Education Marketer&apos;s Knowledge Base</span>
+            <span>Guides for Schools</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
-            Strategic Insights for School Leaders & Marketers.
+            Insights for School Leaders.
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Original research, parent decision blueprints, and technical breakdowns to help educational institutions build long-term authority.
+            Practical guides on how parents choose a school, planning the admission season, local search, and measuring marketing.
           </p>
         </div>
       </RevealSection>
@@ -58,7 +58,6 @@ export default function InsightsIndexPage() {
                   <span className="text-[#2F523E] bg-[#EBF1E9] border border-[#DEE7DC] px-3 py-1 rounded-full">{art.category}</span>
                   <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#6C836F]" /> {art.readTime}</span>
-                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-[#6C836F]" /> {art.publishDate}</span>
                   </div>
                 </div>
 
@@ -87,17 +86,8 @@ export default function InsightsIndexPage() {
 
               <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <Image
-                    src={art.author.avatar}
-                    alt={art.author.name}
-                    width={32}
-                    height={32}
-                    className="rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="text-xs font-bold text-slate-900">{art.author.name}</div>
-                    <div className="text-[10px] text-slate-500">{art.author.role}</div>
-                  </div>
+                  <Logo size={32} />
+                  <div className="text-xs font-bold text-slate-900">PII Digital Media</div>
                 </div>
 
                 <Link
@@ -117,17 +107,17 @@ export default function InsightsIndexPage() {
       <RevealSection className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
         <div className="bg-[#0D151D] text-white rounded-3xl p-8 sm:p-12 border border-[#1C2834] space-y-4">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Have a Specific Marketing or Admissions Challenge?
+            Have a Question About Your School&apos;s Marketing?
           </h2>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
-            Our strategic team frequently conducts bespoke research and catchment audits for educational groups.
+            Tell us what you need help with and we will get back to you.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
               className="px-6 py-3.5 rounded-full bg-[#FAF9F5] hover:bg-white text-[#0D151D] font-semibold text-sm inline-flex items-center gap-2 transition-all shadow-md"
             >
-              <span>Schedule Strategy Call</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

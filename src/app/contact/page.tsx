@@ -98,15 +98,15 @@ export default function ContactPage() {
               <div className="space-y-3 text-xs text-slate-600">
                 <div className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                  <span><strong>1. Catchment Diagnostic:</strong> We run an initial search audit of your district before our call.</span>
+                  <span><strong>1. We read your enquiry.</strong> Your details reach us directly.</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                  <span><strong>2. 45-Min Video Discovery:</strong> We discuss your admissions vacancies and historical conversion bottlenecks.</span>
+                  <span><strong>2. We get in touch.</strong> We contact you by phone or WhatsApp to understand what your school needs.</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                  <span><strong>3. Custom Growth Blueprint:</strong> We present a bespoke roadmap with clear milestones and media budget projections.</span>
+                  <span><strong>3. We agree the scope.</strong> If it is a fit, we agree what work we will take on for your school.</span>
                 </div>
               </div>
             </div>
@@ -114,8 +114,8 @@ export default function ContactPage() {
             <div className="p-6 rounded-2xl bg-[#FAF9F5] border border-[#CBD5C8]/80 flex items-start gap-3">
               <ShieldCheck className="w-5 h-5 text-[#6C836F] shrink-0 mt-0.5" />
               <div className="text-xs text-slate-600">
-                <strong className="text-[#0D151D] block font-bold">Strict Institutional Confidentiality</strong>
-                All student numbers, fee metrics, and trustee discussions remain under strict non-disclosure.
+                <strong className="text-[#0D151D] block font-bold">Your Details</strong>
+                We use the details you send only to respond to your enquiry.
               </div>
             </div>
 

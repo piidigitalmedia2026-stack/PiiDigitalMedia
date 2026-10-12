@@ -262,6 +262,17 @@ export const SERVICES: ServiceDetail[] = [
   }
 ];
 
+// The main offers shown in the header menu and footer; the full list lives on /services.
+const MAIN_SERVICE_SLUGS = [
+  "digital-marketing",
+  "website-content-updates",
+  "admission-campaigns",
+  "social-media-management",
+];
+export const MAIN_SERVICES: ServiceDetail[] = MAIN_SERVICE_SLUGS
+  .map((slug) => SERVICES.find((s) => s.slug === slug))
+  .filter((s): s is ServiceDetail => Boolean(s));
+
 export const EDUCATION_SEGMENTS: EducationSegment[] = [
   {
     slug: "k12-schools",
@@ -405,24 +416,18 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
     slug: "why-parents-reject-schools-digital-audit",
     title: "Why Modern Parents Reject Your School Before Ever Visiting the Campus",
     category: "Parent Psychology",
-    readTime: "7 min read",
-    publishDate: "October 2026",
+    readTime: "2 min read",
     excerpt: "Many parents shortlist schools on their phones long before they call the admissions office. Here is what they look for—and what puts them off.",
-    author: {
-      name: "Saketh Rapaka",
-      role: "Principal Growth Strategist, PII Digital Media",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
-    },
     keyTakeaways: [
-      "Millennial parents research schools in micro-moments late at night on their smartphones.",
+      "Many parents research schools in short sessions on their phones.",
       "A fee structure or admission criteria buried in a long PDF download is a common reason parents give up.",
-      "Generic stock photography of foreign students creates immediate distrust.",
+      "Generic stock photography that does not show the actual school undermines trust.",
       "Parents evaluate student emotional safety and teacher warmth long before examining board exam percentages."
     ],
     contentSections: [
       {
         heading: "The Shift in Parent Evaluation Habits",
-        body: "Ten years ago, parents relied primarily on apartment association word-of-mouth and driving past school gates. Today, many parents research a school thoroughly on their mobile devices before calling an admissions counselor. They inspect your Google Maps reviews, scan your Instagram reels for authentic classroom activity, and scrutinize your website on their phone while commuting."
+        body: "Parents used to rely mainly on word of mouth and what they could see from the school gate. Today, many parents research a school thoroughly on their mobile devices before calling an admissions counselor. They inspect your Google Maps reviews, scan your Instagram reels for authentic classroom activity, and scrutinize your website on their phone while commuting."
       },
       {
         heading: "The Fatal Mistake: The Academic PDF Graveyard",
@@ -430,7 +435,7 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
       },
       {
         heading: "Humanizing the Institution",
-        body: "Show the humans behind the curriculum. Feature candid interviews with primary coordinators, show how the school handles cafeteria nutrition, and let existing parents talk about how their once-shy child bloomed on stage. Authenticity outperforms polish every single time."
+        body: "Show the humans behind the curriculum. Feature candid interviews with primary coordinators, show how the school handles cafeteria nutrition, and let existing parents talk about how their once-shy child bloomed on stage. Authentic content usually does more for trust than polish."
       }
     ],
     tags: ["Parent Psychology", "School Admissions", "UX Design", "Conversion Rate"]
@@ -439,14 +444,8 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
     slug: "school-admission-marketing-calendar-blueprint",
     title: "The 8-Month Admission Campaign Blueprint: Stop Panic Marketing in March",
     category: "Admissions Marketing",
-    readTime: "9 min read",
-    publishDate: "September 2026",
-    excerpt: "The most successful schools don't start running ads in February. Learn how an orchestrated 4-phase calendar helps fill seats before the spring admission crunch begins.",
-    author: {
-      name: "Devendra Verma",
-      role: "Head of Performance Marketing",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
-    },
+    readTime: "2 min read",
+    excerpt: "Admission promotion works better when it is planned than when it starts in a rush in February. Here is a simple four-phase calendar for the admission season.",
     keyTakeaways: [
       "Phase 1 (October-November): Brand Authority & Early Parent Awareness.",
       "Phase 2 (December-January): Campus Open Days & Early-Bird Priority Inquiries.",
@@ -456,11 +455,11 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
     contentSections: [
       {
         heading: "The Pitfall of Last-Minute Panic Marketing",
-        body: "Every year, school trustees experience the same anxiety: when application counters look thin in February, they hurriedly instruct their teams to print brochures, sponsor road dividers, and blast untargeted digital ads. This leads to high lead acquisition costs, overwhelmed counselors, and parents feeling that the school is desperate rather than prestigious."
+        body: "When applications look thin in February, it is tempting to rush out brochures, hoardings, and untargeted digital ads. Rushed promotion tends to cost more, overloads the admissions team, and can make a school look anxious rather than confident."
       },
       {
         heading: "Phase 1: Plant the Seeds of Desire (October - November)",
-        body: "During autumn, top schools run emotional brand films and pedagogical storytelling campaigns. No hard sell—just celebrating science exhibitions, sports day energy, and alumni achievements. This establishes top-of-mind brand recall when parents begin actively debating school changes over the winter holidays."
+        body: "In these months, focus on storytelling rather than selling. No hard sell—just celebrating science exhibitions, sports day energy, and alumni achievements. This keeps the school in mind when parents start thinking about admissions over the winter holidays."
       },
       {
         heading: "Phase 2: The Open Day Blitz (December - January)",
@@ -473,24 +472,18 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
     slug: "local-seo-google-map-pack-domination-schools",
     title: "How to Rank in the Top 3 on Google Maps for 'Best School Near Me'",
     category: "Search & Local SEO",
-    readTime: "8 min read",
-    publishDate: "August 2026",
-    excerpt: "A large share of school searches happen on Google Maps. Here is a practical local SEO checklist for showing up in the Local 3-Pack.",
-    author: {
-      name: "Pooja Sundaram",
-      role: "Senior SEO & Technical Director",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-    },
+    readTime: "2 min read",
+    excerpt: "Many parents look for schools on Google Maps. Here is a practical local SEO checklist for showing up in local results.",
     keyTakeaways: [
       "Your Google Business Profile primary category must precisely match parent search intent.",
-      "Review velocity and genuine photo updates matter more than backlink counts in local pack algorithms.",
-      "Hyper-local catchment landing pages are necessary to capture queries beyond a 5km radius.",
+      "Genuine reviews and regular, real photo updates help your profile look active and trustworthy.",
+      "Pages written for the neighbourhoods you serve can help you appear for searches from those areas.",
       "Implementing structured EducationalOrganization schema markup provides search engines with verifiable campus data."
     ],
     contentSections: [
       {
-        heading: "Why Google Maps is Your Highest ROI Marketing Asset",
-        body: "When a family moves to a new residential apartment complex, their first action is opening Google Maps and typing 'CBSE school near me' or 'preschool within 5 km'. If your school is not featured prominently in the Top 3 Local Pack, you are invisible to many of those families."
+        heading: "Why Google Maps Matters for Schools",
+        body: "A family new to an area will often open Google Maps and search for something like 'CBSE school near me'. If your school does not appear in those local results, many of those families will not come across it."
       },
       {
         heading: "Optimizing the Google Business Profile (GBP)",
@@ -498,7 +491,7 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
       },
       {
         heading: "Engineering Catchment Area Landing Pages",
-        body: "Schools draw students along specific transport bus routes. Build dedicated indexable pages for key surrounding neighborhoods (e.g., 'Best ICSE School for families residing in Whitefield / HSR Layout'). Detail average bus commute times, pickup safety protocols, and student testimonials from those specific areas."
+        body: "Schools draw students along specific transport bus routes. Build dedicated indexable pages for key surrounding neighborhoods that describe transport routes and pickup arrangements for those areas. Only include details the school has confirmed."
       }
     ],
     tags: ["Local SEO", "Google Maps", "School Ranking", "Schema Markup"]
@@ -507,14 +500,8 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
     slug: "measuring-roi-in-education-marketing",
     title: "Cost Per Enquiry vs Cost Per Enrolment: The True Metrics of Education Marketing",
     category: "Digital Strategy",
-    readTime: "6 min read",
-    publishDate: "July 2026",
-    excerpt: "Cheap leads that never answer phone calls are an expensive illusion. Learn how to align digital marketing spend directly with completed fee payments and classroom retention.",
-    author: {
-      name: "Saketh Rapaka",
-      role: "Principal Growth Strategist, PII Digital Media",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
-    },
+    readTime: "1 min read",
+    excerpt: "Cheap leads that never answer the phone are not really cheap. Here is why cost per enrolment is a better measure than cost per enquiry.",
     keyTakeaways: [
       "Never judge agency performance by click-through rates or raw leads alone.",
       "The 5 critical conversion gates: Impression → Lead → Qualified Lead → Campus Tour → Enrolment.",
@@ -524,11 +511,11 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
     contentSections: [
       {
         heading: "The Deception of the '₹50 Lead'",
-        body: "Many digital agencies boast about delivering leads at ₹50 on social media by running misleading survey forms. However, when the school admission desk calls those numbers, many respondents state they clicked by accident or thought the school offered full scholarships. The true cost of bad leads is demoralized admissions staff and missed targets."
+        body: "A very low cost per lead can look impressive on a report. But if the admissions desk calls those numbers and finds people who clicked by accident or were never interested, the leads were not cheap at all. The real cost of bad leads is wasted staff time and missed targets."
       },
       {
         heading: "The 5-Gate Educational Funnel",
-        body: "At PII Digital Media, we measure performance through 5 disciplined checkpoints: 1) Verified Enquiry (correct student age and board intent), 2) Counselor Connect (meaningful 3-minute discussion), 3) Campus Tour Scheduled, 4) Campus Tour Completed, and 5) Application Form & Fee Deposit Completed. Marketing optimization must be governed by Step 4 and Step 5."
+        body: "A useful way to judge a campaign is to follow an enquiry through five checkpoints: 1) Verified Enquiry (correct student age and board intent), 2) Counselor Connect (meaningful 3-minute discussion), 3) Campus Tour Scheduled, 4) Campus Tour Completed, and 5) Application Form & Fee Deposit Completed. The later steps tell you far more about a campaign than the first one."
       }
     ],
     tags: ["Marketing ROI", "Admissions CRM", "Analytics", "Executive Advisory"]
@@ -544,7 +531,7 @@ export const FREQUENT_QUESTIONS: FAQItem[] = [
   {
     category: "General",
     question: "Which schools do you work with?",
-    answer: "We currently work with CMR School, Kompally; CMR School, Kundapally; Malla Reddy School, Medchal; and Wellspire International School."
+    answer: "We currently work with CMR School, Kompally; CMR School, Kundanpally; Malla Reddy School, Medchal; and Wellspire International School."
   },
   {
     category: "Admissions",

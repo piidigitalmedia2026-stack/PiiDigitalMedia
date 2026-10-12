@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ChevronDown, ArrowRight, Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SERVICES, WHATSAPP_URL } from "@/data/content";
+import { SERVICES, WHATSAPP_URL, MAIN_SERVICES } from "@/data/content";
 import { Logo } from "@/components/Logo";
 
 export function Header() {
@@ -23,7 +23,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 py-2 sm:py-3 transition-all bg-[#FAF9F5]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 py-2 sm:py-3 transition-colors bg-[#FAF9F5]/[0.97]">
       <div className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12">
         {/* Mobile Floating Pill Navbar (< lg) - EXACT MATCH TO MOCKUP */}
         <div className="flex lg:hidden items-center justify-between bg-white/95 rounded-full px-3.5 py-1.5 border border-[#CBD5C8]/60 shadow-xs">
@@ -93,23 +93,23 @@ export function Header() {
               </button>
 
               {servicesDropdown && (
-                <div className="absolute top-full left-0 w-[560px] bg-white rounded-2xl shadow-xl border border-slate-100 p-4 grid grid-cols-2 gap-2 mt-2 z-50">
+                <div className="absolute top-full left-0 w-[520px] bg-white rounded-2xl shadow-xl border border-slate-100 p-4 grid grid-cols-2 gap-2 mt-2 z-50 whitespace-normal">
                   <div className="col-span-2 pb-2 mb-1 border-b border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Practice Areas</span>
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Main Services</span>
                     <Link href="/services" className="text-xs text-[#6C836F] hover:underline font-medium">All {SERVICES.length} Services &rarr;</Link>
                   </div>
-                  {SERVICES.slice(0, 8).map((srv) => (
+                  {MAIN_SERVICES.map((srv) => (
                     <Link 
                       key={srv.slug}
                       href={`/services/${srv.slug}`}
-                      className="p-2 rounded-xl hover:bg-[#FAF9F5] transition-colors flex items-start gap-2.5"
+                      className="p-2 rounded-xl hover:bg-[#FAF9F5] transition-colors flex items-start gap-2.5 min-w-0"
                     >
                       <div className="w-7 h-7 rounded-lg bg-[#EBF1E9] text-[#2F523E] flex items-center justify-center shrink-0 mt-0.5">
                         <Globe className="w-3.5 h-3.5" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <div className="text-xs font-semibold text-slate-900">{srv.shortTitle}</div>
-                        <p className="text-[10.5px] text-slate-500 line-clamp-1">{srv.summary}</p>
+                        <p className="text-[10.5px] text-slate-500 truncate">{srv.summary}</p>
                       </div>
                     </Link>
                   ))}

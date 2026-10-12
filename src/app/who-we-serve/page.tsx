@@ -31,7 +31,7 @@ export default function WhoWeServeIndexPage() {
         <div className="max-w-3xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
             <GraduationCap className="w-3.5 h-3.5 text-[#6C836F]" />
-            <span>Targeted Institutional Segments</span>
+            <span>Who We Serve</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
@@ -77,7 +77,7 @@ export default function WhoWeServeIndexPage() {
                   href={`/who-we-serve/${seg.slug}`}
                   className="w-full py-3 rounded-full bg-[#0D151D] group-hover:bg-[#6C836F] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
                 >
-                  <span>Explore Segment Playbook</span>
+                  <span>Learn More</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -90,17 +90,17 @@ export default function WhoWeServeIndexPage() {
       <RevealSection className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
         <div className="bg-[#0D151D] text-white rounded-3xl p-8 sm:p-12 border border-[#1C2834] space-y-4">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Operating a Unique Educational Format or Foundation?
+            Is Your School Not Listed Here?
           </h2>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
-            We also consult for sports academies, special-needs institutions, and education trusts.
+            Tell us about your school and we will let you know whether we can help.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
               className="px-6 py-3.5 rounded-full bg-[#FAF9F5] hover:bg-white text-[#0D151D] font-semibold text-sm inline-flex items-center gap-2 transition-all shadow-md"
             >
-              <span>Speak with a Segment Lead</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

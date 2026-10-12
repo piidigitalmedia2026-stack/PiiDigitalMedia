@@ -6,7 +6,7 @@ import {
   Sparkles, 
   ShieldCheck
 } from "lucide-react";
-import { SERVICES, EDUCATION_SEGMENTS, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164, WHATSAPP_URL } from "@/data/content";
+import { SERVICES, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164, WHATSAPP_URL, MAIN_SERVICES } from "@/data/content";
 import { Logo } from "@/components/Logo";
 
 export function Footer() {
@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         {/* Multi-Column Main Directory */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-[#1C2834]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-16 border-b border-[#1C2834]">
           
           {/* Brand & Mission Column */}
           <div className="lg:col-span-2 flex flex-col gap-5">
@@ -90,9 +90,9 @@ export function Footer() {
 
           {/* Core Services Column */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#CBD5E1]">Strategic Services</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#CBD5E1]">Main Services</h4>
             <ul className="flex flex-col gap-0.5 sm:gap-2 text-sm sm:text-xs text-[#94A3B8]">
-              {SERVICES.slice(0, 7).map((s) => (
+              {MAIN_SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`} className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">
                     {s.shortTitle}
@@ -107,23 +107,9 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Education Segments Column */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#CBD5E1]">Who We Serve</h4>
-            <ul className="flex flex-col gap-0.5 sm:gap-2 text-sm sm:text-xs text-[#94A3B8]">
-              {EDUCATION_SEGMENTS.map((seg) => (
-                <li key={seg.slug}>
-                  <Link href={`/who-we-serve/${seg.slug}`} className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">
-                    {seg.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Company & Knowledge Hub Column */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#CBD5E1]">Knowledge & Legal</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#CBD5E1]">Company</h4>
             <ul className="flex flex-col gap-0.5 sm:gap-2 text-sm sm:text-xs text-[#94A3B8]">
               <li>
                 <Link href="/about" className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">About PII Digital Media</Link>
@@ -136,9 +122,6 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">Contact Us</Link>
-              </li>
-              <li>
-                <Link href="/sitemap.xml" className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">XML Sitemap</Link>
               </li>
             </ul>
           </div>

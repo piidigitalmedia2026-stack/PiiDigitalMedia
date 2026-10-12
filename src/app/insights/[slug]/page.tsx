@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@/components/Logo";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { INSIGHTS_ARTICLES } from "@/data/content";
 import { getMetadata, generateBreadcrumbSchema } from "@/lib/seo";
-import { Clock, Calendar, ArrowRight, Share2, Sparkles, CheckCircle2 } from "lucide-react";
+import { Clock, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { RevealSection } from "@/components/Motion";
 
@@ -56,15 +56,13 @@ export default async function InsightDetailPage({
     "headline": article.title,
     "description": article.excerpt,
     "author": {
-      "@type": "Person",
-      "name": article.author.name,
-      "jobTitle": article.author.role
-    },
-    "publisher": {
-      "@type": "EducationalOrganization",
+      "@type": "Organization",
       "name": "PII Digital Media"
     },
-    "datePublished": "2026-08-15"
+    "publisher": {
+      "@type": "Organization",
+      "name": "PII Digital Media"
+    }
   };
 
   return (
@@ -84,7 +82,6 @@ export default async function InsightDetailPage({
           <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-slate-500">
             <span className="text-[#2F523E] bg-[#EBF1E9] border border-[#DEE7DC] px-3 py-1 rounded-full">{article.category}</span>
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#6C836F]" /> {article.readTime}</span>
-            <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-[#6C836F]" /> {article.publishDate}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
@@ -98,22 +95,8 @@ export default async function InsightDetailPage({
           {/* Author Badge */}
           <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image
-                src={article.author.avatar}
-                alt={article.author.name}
-                width={44}
-                height={44}
-                className="rounded-full object-cover"
-              />
-              <div>
-                <div className="text-sm font-bold text-slate-900">{article.author.name}</div>
-                <div className="text-xs text-slate-500">{article.author.role}</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-1.5 text-xs text-slate-500">
-              <Share2 className="w-4 h-4 text-slate-400" />
-              <span>Share Guide</span>
+              <Logo size={40} />
+              <div className="text-sm font-bold text-slate-900">PII Digital Media</div>
             </div>
           </div>
         </div>
@@ -124,7 +107,7 @@ export default async function InsightDetailPage({
         <div className="p-8 rounded-3xl bg-[#EBF1E9]/70 border border-[#DEE7DC] space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2F523E]">
             <Sparkles className="w-4 h-4 text-[#6C836F]" />
-            <span>Executive Summary & Key Takeaways</span>
+            <span>Key Takeaways</span>
           </div>
           <ul className="space-y-2.5">
             {article.keyTakeaways.map((takeaway) => (
@@ -164,10 +147,10 @@ export default async function InsightDetailPage({
       <RevealSection className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="mb-6 text-center space-y-2">
           <h2 className="text-2xl font-extrabold text-slate-950">
-            Put These Strategic Principles into Practice
+            Want Help Putting This into Practice?
           </h2>
           <p className="text-slate-600 text-sm max-w-md mx-auto">
-            Book a confidential strategy session with our education practice leads.
+            Tell us about your school and what you need help with.
           </p>
         </div>
         <ContactForm />

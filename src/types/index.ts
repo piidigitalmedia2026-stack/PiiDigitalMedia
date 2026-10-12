@@ -46,13 +46,7 @@ export interface InsightArticle {
   title: string;
   category: "Admissions Marketing" | "Institutional Branding" | "Parent Psychology" | "Digital Strategy" | "Search & Local SEO";
   readTime: string;
-  publishDate: string;
   excerpt: string;
-  author: {
-    name: string;
-    role: string;
-    avatar: string;
-  };
   keyTakeaways: string[];
   contentSections: {
     heading: string;

@@ -33,7 +33,7 @@ export async function generateMetadata({
 
   return getMetadata({
     title: segment.title,
-    description: `Digital marketing, branding, and admissions growth blueprint specifically tailored for ${segment.title}.`,
+    description: `How PII Digital Media approaches digital marketing for ${segment.title}.`,
     path: `/who-we-serve/${segment.slug}`,
     keywords: [segment.title, "school marketing", "admissions strategy", "education growth"]
   });
@@ -69,7 +69,7 @@ export default async function SegmentDetailPage({
         <div className="max-w-4xl space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
             <GraduationCap className="w-3.5 h-3.5 text-[#6C836F]" />
-            <span>Institutional Profile Playbook</span>
+            <span>Who We Serve</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
@@ -109,10 +109,10 @@ export default async function SegmentDetailPage({
           <div className="bg-red-50/50 border border-red-200/60 rounded-3xl p-8 space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-600">
               <AlertTriangle className="w-4 h-4" />
-              <span>Key Sector Roadblocks</span>
+              <span>Common Challenges</span>
             </div>
             <h3 className="text-xl font-bold text-slate-900">
-              What Holds This Segment Back
+              What These Schools Often Face
             </h3>
             <ul className="space-y-3 pt-2">
               {segment.keyChallenges.map((ch) => (
@@ -127,10 +127,10 @@ export default async function SegmentDetailPage({
           <div className="bg-[#EBF1E9]/70 border border-[#DEE7DC] rounded-3xl p-8 space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2F523E]">
               <Sparkles className="w-4 h-4 text-[#6C836F]" />
-              <span>The PII Growth Protocol</span>
+              <span>Our Approach</span>
             </div>
             <h3 className="text-xl font-bold text-[#0D151D]">
-              Our Strategic Solutions
+              How We Help
             </h3>
             <ul className="space-y-3 pt-2">
               {segment.strategicSolutions.map((sol) => (
@@ -149,10 +149,10 @@ export default async function SegmentDetailPage({
       <RevealSection id="segment-inquiry" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="mb-8 text-center space-y-2">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-            Schedule a Diagnostic for Your {segment.title}
+            Talk to Us About Your School
           </h2>
           <p className="text-slate-600 text-sm max-w-lg mx-auto">
-            Our sector leads will review your campus catchment and prepare a tailored strategy.
+            Tell us about your school and what you need help with.
           </p>
         </div>
         <ContactForm defaultSegment={segment.title} />

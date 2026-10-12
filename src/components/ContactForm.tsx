@@ -102,7 +102,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
           Thank You, {formData.contactPerson}
         </h3>
         <p className="text-slate-600 text-xs sm:text-sm mt-1.5 max-w-md leading-relaxed">
-          We have received your enquiry for <strong>{formData.institutionName}</strong>. Our school growth team will reach out within 24 hours.
+          We have received your enquiry for <strong>{formData.institutionName}</strong>. We will get back to you.
         </p>
 
         <div className="my-4 px-4 py-2.5 rounded-xl bg-[#FAF9F5] border border-[#CBD5C8]/60 flex items-center justify-between w-full max-w-xs text-xs">
@@ -143,13 +143,9 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
             Send an Enquiry
           </h3>
           <p className="text-slate-500 text-xs mt-0.5">
-            Quick 60-second form for a customized school growth proposal.
+            Tell us about your school and what you need help with.
           </p>
         </div>
-        <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold text-[#2F523E] bg-[#EBF1E9] px-2.5 py-1 rounded-full shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#6C836F] animate-pulse" />
-          <span>24h Response</span>
-        </span>
       </div>
 
       {status === "error" && (
@@ -171,7 +167,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
               <input
                 type="text"
                 required
-                placeholder="e.g. Oakridge, Hyderabad"
+                placeholder="School name, city"
                 value={formData.institutionName}
                 onChange={(e) => setFormData({ ...formData, institutionName: e.target.value })}
                 className="w-full pl-9 pr-3 py-2 bg-[#FAF9F5] border border-[#CBD5C8]/80 rounded-xl text-sm text-[#0D151D] placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#6C836F]/40 focus:border-[#6C836F] transition-all"
@@ -208,7 +204,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
               <input
                 type="tel"
                 required
-                placeholder="+91 98765 43210"
+                placeholder="Phone number"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full pl-9 pr-3 py-2 bg-[#FAF9F5] border border-[#CBD5C8]/80 rounded-xl text-sm text-[#0D151D] placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#6C836F]/40 focus:border-[#6C836F] transition-all"
@@ -267,7 +263,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
           </label>
           <input
             type="text"
-            placeholder="e.g. Looking to increase Grade 1 & 11 enrollments"
+            placeholder="What would you like help with?"
             value={formData.notes}
             onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
             className="w-full px-3 py-2 bg-[#FAF9F5] border border-[#CBD5C8]/80 rounded-xl text-sm text-[#0D151D] placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#6C836F]/40 focus:border-[#6C836F] transition-all"
@@ -288,7 +284,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
               </>
             ) : (
               <>
-                <span>Request Growth Proposal</span>
+                <span>Send Enquiry</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
@@ -297,7 +293,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
 
         {/* Trust & WhatsApp Link */}
         <div className="pt-1 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-1.5 text-center sm:text-left">
-          <span>🔒 Strictly Confidential • No Spam</span>
+          <span>We use your details only to respond to you.</span>
           <a
             href="https://wa.me/917989995014?text=Hi%20PII%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20marketing%20for%20our%20school."
             target="_blank"
