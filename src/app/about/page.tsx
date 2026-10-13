@@ -18,7 +18,7 @@ import { RevealSection } from "@/components/Motion";
 
 export const metadata: Metadata = getMetadata({
   title: "About Us",
-  description: "About PII Digital Media, a brand that manages digital marketing for schools.",
+  description: "About Pii Digital Media, a brand that manages digital marketing for schools.",
   path: "/about",
   keywords: ["education marketing agency about", "school digital marketing specialists", "education branding agency"]
 });
@@ -49,7 +49,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            PII Digital Media is a brand that manages digital marketing and digital presence for schools. Great schools deserve to be seen, and our work is to help them show parents what they are really like.
+            Pii Digital Media is a brand that manages digital marketing and digital presence for schools. Great schools deserve to be seen, and our work is to help them show parents what they are really like.
           </p>
         </div>
       </RevealSection>

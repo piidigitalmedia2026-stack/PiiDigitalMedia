@@ -57,11 +57,11 @@ export default async function InsightDetailPage({
     "description": article.excerpt,
     "author": {
       "@type": "Organization",
-      "name": "PII Digital Media"
+      "name": "Pii Digital Media"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "PII Digital Media"
+      "name": "Pii Digital Media"
     }
   };
 
@@ -96,7 +96,7 @@ export default async function InsightDetailPage({
           <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Logo size={40} />
-              <div className="text-sm font-bold text-white">PII Digital Media</div>
+              <div className="text-sm font-bold text-white">Pii Digital Media</div>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export function Logo({ size = 40 }: { size?: number }) {
     >
       <Image
         src="/logo.webp"
-        alt="PII Digital Media logo"
+        alt="Pii Digital Media logo"
         width={1254}
         height={1254}
         className="absolute max-w-none"

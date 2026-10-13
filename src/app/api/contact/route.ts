@@ -47,7 +47,7 @@ async function saveLeadToLocalBackup(
 
     await fs.writeFile(backupFile, JSON.stringify(leads, null, 2), "utf-8");
   } catch (err) {
-    console.error("[PII Lead API] Failed to write local backup:", err);
+    console.error("[Pii Lead API] Failed to write local backup:", err);
   }
 }
 
@@ -181,7 +181,7 @@ export async function POST(req: NextRequest) {
     }
 
     const submission: ContactSubmission = {
-      id: `PII-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`,
+      id: `Pii-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`,
       institutionName: institutionName.trim(),
       contactPerson: contactPerson.trim(),
       email: email.trim(),
@@ -204,7 +204,7 @@ export async function POST(req: NextRequest) {
       sheetSuccess = true;
     } catch (error: unknown) {
       sheetErrorMsg = error instanceof Error ? error.message : String(error);
-      console.error(`[PII Lead API] Lead ${submission.id} was NOT saved to the sheet:`, sheetErrorMsg);
+      console.error(`[Pii Lead API] Lead ${submission.id} was NOT saved to the sheet:`, sheetErrorMsg);
     }
 
     // Always persist to local backup so no lead is lost
@@ -232,7 +232,7 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (error: unknown) {
-    console.error("[PII Lead API] Error handling submission:", error);
+    console.error("[Pii Lead API] Error handling submission:", error);
     return NextResponse.json(
       { success: false, error: `Something went wrong sending your enquiry. ${CONTACT_FALLBACK}` },
       { status: 500 }

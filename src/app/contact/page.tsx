@@ -17,7 +17,7 @@ import { RevealSection } from "@/components/Motion";
 
 export const metadata: Metadata = getMetadata({
   title: "Contact Us",
-  description: "Contact PII Digital Media about digital marketing for your school. Call or WhatsApp +91 79899 95014.",
+  description: "Contact Pii Digital Media about digital marketing for your school. Call or WhatsApp +91 79899 95014.",
   path: "/contact",
   keywords: ["education marketing agency contact", "book school marketing strategy call", "school admissions audit"]
 });

@@ -379,7 +379,7 @@ export function HeroScrollSection() {
                 <div>
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] text-[10.5px] font-bold tracking-[0.16em] uppercase mb-3 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                    <span>The PII Approach</span>
+                    <span>The Pii Approach</span>
                   </div>
                   <h2 className="text-4xl lg:text-[44px] font-black text-white tracking-tight leading-tight">
                     More Than <span className="font-serif italic font-normal text-[#82A386]">Marketing</span>

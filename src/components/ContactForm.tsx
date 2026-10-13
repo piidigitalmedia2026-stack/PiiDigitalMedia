@@ -75,7 +75,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
       }
 
       setStatus("success");
-      setReferenceId(json.referenceId || "PII-CONFIRMED");
+      setReferenceId(json.referenceId || "Pii-CONFIRMED");
     } catch (err) {
       setStatus("error");
       setErrorMessage(
@@ -112,7 +112,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
 
         <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto">
           <a
-            href="https://wa.me/917989995014?text=Hi%20PII%20Digital%20Media%2C%20I%20just%20submitted%20an%20enquiry%20for%20our%20school."
+            href="https://wa.me/917989995014?text=Hi%20Pii%20Digital%20Media%2C%20I%20just%20submitted%20an%20enquiry%20for%20our%20school."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#132E20] hover:bg-[#1A3D2A] text-[#4ADE80] border border-[#224A32] font-semibold text-xs transition-colors shadow-sm"
@@ -295,7 +295,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
         <div className="pt-1 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-1.5 text-center sm:text-left">
           <span>We use your details only to respond to you.</span>
           <a
-            href="https://wa.me/917989995014?text=Hi%20PII%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20marketing%20for%20our%20school."
+            href="https://wa.me/917989995014?text=Hi%20Pii%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20marketing%20for%20our%20school."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 font-semibold text-[#4ADE80] hover:underline"

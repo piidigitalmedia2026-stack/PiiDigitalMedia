@@ -8,7 +8,7 @@ import { RevealSection } from "@/components/Motion";
 
 export const metadata: Metadata = getMetadata({
   title: "Who We Serve",
-  description: "The kinds of schools PII Digital Media works with: K-12 schools, pre-primary sections, and international schools.",
+  description: "The kinds of schools Pii Digital Media works with: K-12 schools, pre-primary sections, and international schools.",
   path: "/who-we-serve",
   keywords: ["schools digital marketing", "school marketing", "pre-primary admission marketing"]
 });

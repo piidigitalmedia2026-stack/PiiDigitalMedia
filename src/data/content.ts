@@ -1,6 +1,6 @@
 import { ServiceDetail, School, EducationSegment, InsightArticle, FAQItem } from "@/types";
 
-export const AGENCY_NAME = "PII Digital Media";
+export const AGENCY_NAME = "Pii Digital Media";
 export const BRAND_TAGLINE = "Great Schools Deserve to Be Seen.";
 export const SECONDARY_TAGLINE = "Create. Connect. Grow.";
 export const BRAND_SUBTITLE = "We manage digital marketing and digital presence for schools: websites, social media, creatives, reels, admission campaigns, ads, and SEO.";
@@ -525,7 +525,7 @@ export const INSIGHTS_ARTICLES: InsightArticle[] = [
 export const FREQUENT_QUESTIONS: FAQItem[] = [
   {
     category: "General",
-    question: "What does PII Digital Media do?",
+    question: "What does Pii Digital Media do?",
     answer: "We manage digital marketing for schools. Depending on what each school needs, that covers social media management, posters and carousels, reels and promotional videos, admission campaigns, Google Ads and Meta Ads coordination, website content updates, SEO-related work, content calendars, and performance reporting."
   },
   {

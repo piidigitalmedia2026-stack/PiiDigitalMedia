@@ -36,30 +36,30 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://piidigitalmedia.com"),
   title: {
-    default: "PII Digital Media | Digital Marketing for Schools",
-    template: "%s | PII Digital Media"
+    default: "Pii Digital Media | Digital Marketing for Schools",
+    template: "%s | Pii Digital Media"
   },
-  description: "PII Digital Media manages digital marketing for schools: social media, creatives, reels, admission campaigns, ads, website content, and SEO.",
+  description: "Pii Digital Media manages digital marketing for schools: social media, creatives, reels, admission campaigns, ads, website content, and SEO.",
   keywords: [
     "digital marketing agency for schools",
     "school admission marketing",
     "school social media management",
     "digital marketing for schools"
   ],
-  authors: [{ name: "PII Digital Media" }],
-  creator: "PII Digital Media",
+  authors: [{ name: "Pii Digital Media" }],
+  creator: "Pii Digital Media",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://piidigitalmedia.com",
-    siteName: "PII Digital Media",
-    title: "PII Digital Media — Great Schools Deserve to Be Seen",
+    siteName: "Pii Digital Media",
+    title: "Pii Digital Media — Great Schools Deserve to Be Seen",
     description: "Social media, creatives, reels, admission campaigns, ads, website content, and SEO for schools.",
     images: [{ url: "/logo.webp" }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "PII Digital Media — Great Schools Deserve to Be Seen",
+    title: "Pii Digital Media — Great Schools Deserve to Be Seen",
     description: "Digital marketing for schools.",
   }
 };

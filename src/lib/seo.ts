@@ -13,7 +13,7 @@ export function getMetadata({
 }): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://piidigitalmedia.com";
   const url = `${baseUrl}${path}`;
-  const fullTitle = `${title} | PII Digital Media`;
+  const fullTitle = `${title} | Pii Digital Media`;
 
   const defaultKeywords = [
     "digital marketing agency for schools",
@@ -27,9 +27,9 @@ export function getMetadata({
     title,
     description,
     keywords: [...keywords, ...defaultKeywords],
-    authors: [{ name: "PII Digital Media", url: baseUrl }],
-    creator: "PII Digital Media",
-    publisher: "PII Digital Media",
+    authors: [{ name: "Pii Digital Media", url: baseUrl }],
+    creator: "Pii Digital Media",
+    publisher: "Pii Digital Media",
     alternates: {
       canonical: url,
     },
@@ -37,7 +37,7 @@ export function getMetadata({
       title: fullTitle,
       description,
       url,
-      siteName: "PII Digital Media",
+      siteName: "Pii Digital Media",
       locale: "en_IN",
       type: "website",
       images: [
@@ -45,7 +45,7 @@ export function getMetadata({
           url: `${baseUrl}/logo.webp`,
           width: 1254,
           height: 1254,
-          alt: "PII Digital Media — Great Schools Deserve to Be Seen",
+          alt: "Pii Digital Media — Great Schools Deserve to Be Seen",
         },
       ],
     },
@@ -73,10 +73,10 @@ export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "PII Digital Media",
+    "name": "Pii Digital Media",
     "url": "https://piidigitalmedia.com",
     "logo": "https://piidigitalmedia.com/logo.webp",
-    "description": "PII Digital Media manages digital marketing for schools: social media, creatives, reels, admission campaigns, ads, website content, and SEO.",
+    "description": "Pii Digital Media manages digital marketing for schools: social media, creatives, reels, admission campaigns, ads, website content, and SEO.",
     "slogan": "Create. Connect. Grow.",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -111,7 +111,7 @@ export function generateServiceSchema(service: {
     "serviceType": service.name,
     "provider": {
       "@type": "Organization",
-      "name": "PII Digital Media"
+      "name": "Pii Digital Media"
     },
     "description": service.description,
     "url": service.url,

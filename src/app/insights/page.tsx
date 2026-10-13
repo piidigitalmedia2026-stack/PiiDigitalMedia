@@ -87,7 +87,7 @@ export default function InsightsIndexPage() {
               <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <Logo size={32} />
-                  <div className="text-xs font-bold text-white">PII Digital Media</div>
+                  <div className="text-xs font-bold text-white">Pii Digital Media</div>
                 </div>
 
                 <Link

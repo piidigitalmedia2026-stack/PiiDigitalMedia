@@ -9,7 +9,7 @@ import { RevealSection } from "@/components/Motion";
 
 export const metadata: Metadata = getMetadata({
   title: "Schools We Work With",
-  description: "The schools whose digital marketing PII Digital Media currently manages.",
+  description: "The schools whose digital marketing Pii Digital Media currently manages.",
   path: "/work",
   keywords: ["school digital marketing", "school social media management", "school admission campaigns"]
 });
@@ -40,7 +40,7 @@ export default function WorkIndexPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            PII Digital Media currently works with {SCHOOLS.length} schools. Each school&apos;s content, campaigns, and reports are managed separately.
+            Pii Digital Media currently works with {SCHOOLS.length} schools. Each school&apos;s content, campaigns, and reports are managed separately.
           </p>
         </div>
       </RevealSection>

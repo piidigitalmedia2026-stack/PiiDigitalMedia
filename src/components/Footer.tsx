@@ -60,7 +60,7 @@ export function Footer() {
               <Logo size={48} />
               <div>
                 <span className="font-extrabold text-white text-lg tracking-tight block group-hover:text-[#82A386] transition-colors">
-                  PII Digital Media
+                  Pii Digital Media
                 </span>
                 <span className="text-[10px] font-semibold tracking-widest text-[#82A386] uppercase">
                   Create • Connect • Grow
@@ -69,7 +69,7 @@ export function Footer() {
             </Link>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              PII Digital Media manages digital marketing for schools: social media, creatives, reels, admission campaigns, ads, website content, and SEO.
+              Pii Digital Media manages digital marketing for schools: social media, creatives, reels, admission campaigns, ads, website content, and SEO.
             </p>
 
             <div className="p-4 rounded-2xl bg-[#0E141B] border border-white/[0.08] flex items-start gap-3">
@@ -112,7 +112,7 @@ export function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">Company</h4>
             <ul className="flex flex-col gap-0.5 sm:gap-2 text-sm sm:text-xs text-slate-400">
               <li>
-                <Link href="/about" className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">About PII Digital Media</Link>
+                <Link href="/about" className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">About Pii Digital Media</Link>
               </li>
               <li>
                 <Link href="/work" className="inline-block py-1.5 sm:py-0 hover:text-white transition-colors">Schools We Work With</Link>
@@ -129,7 +129,7 @@ export function Footer() {
 
         {/* Bottom Disclaimer & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 PII Digital Media. All rights reserved.</p>
+          <p>© 2026 Pii Digital Media. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span>Create</span>
             <span>Connect</span>

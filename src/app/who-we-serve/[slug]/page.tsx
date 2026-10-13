@@ -33,7 +33,7 @@ export async function generateMetadata({
 
   return getMetadata({
     title: segment.title,
-    description: `How PII Digital Media approaches digital marketing for ${segment.title}.`,
+    description: `How Pii Digital Media approaches digital marketing for ${segment.title}.`,
     path: `/who-we-serve/${segment.slug}`,
     keywords: [segment.title, "school marketing", "admissions strategy", "education growth"]
   });

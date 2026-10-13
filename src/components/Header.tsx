@@ -30,7 +30,7 @@ export function Header() {
             <Logo size={34} />
             <div className="flex flex-col justify-center min-w-0">
               <span className="font-bold text-white text-[13.5px] tracking-tight leading-tight truncate">
-                PII Digital Media
+                Pii Digital Media
               </span>
               <span className="text-[7px] font-bold tracking-[0.15em] text-[#82A386] uppercase">
                 CREATE • CONNECT • GROW
@@ -54,7 +54,7 @@ export function Header() {
             <Logo size={40} />
             <div className="flex flex-col justify-center">
               <span className="font-bold text-white text-[15px] tracking-tight leading-tight group-hover:text-[#82A386] transition-colors">
-                PII Digital Media
+                Pii Digital Media
               </span>
               <span className="text-[8.5px] font-bold tracking-[0.16em] text-[#82A386] uppercase mt-0.5">
                 CREATE • CONNECT • GROW
@@ -137,7 +137,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0 whitespace-nowrap">
             {/* Mint Green WhatsApp Pill with Green Dot & Icon */}
             <a 
-              href={`${WHATSAPP_URL}?text=Hello%20PII%20Digital%20Media`}
+              href={`${WHATSAPP_URL}?text=Hello%20Pii%20Digital%20Media`}
               target="_blank"
               rel="noopener noreferrer"
               className="h-[34px] px-3.5 rounded-full text-xs font-semibold text-[#4ADE80] bg-[#132E20] hover:bg-[#1A3D2B] border border-[#224A32] transition-all flex items-center gap-1.5 shadow-sm"

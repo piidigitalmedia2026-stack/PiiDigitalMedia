@@ -157,7 +157,7 @@ function ServiceStackCard({ service, index, total }: ServiceCardProps) {
           </Link>
 
           <a
-            href={`${WHATSAPP_URL}?text=Hi%20PII%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(service.shortTitle)}%20for%20our%20school.`}
+            href={`${WHATSAPP_URL}?text=Hi%20Pii%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(service.shortTitle)}%20for%20our%20school.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#4ADE80] hover:text-white py-1 px-2.5 rounded-full hover:bg-[#132E20] transition-colors"
