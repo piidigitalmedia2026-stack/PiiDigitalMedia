@@ -6,7 +6,7 @@ import {
   Sparkles, 
   ShieldCheck
 } from "lucide-react";
-import { SERVICES, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164, WHATSAPP_URL, MAIN_SERVICES } from "@/data/content";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164, WHATSAPP_URL, MAIN_SERVICES } from "@/data/content";
 import { Logo } from "@/components/Logo";
 
 export function Footer() {
@@ -99,11 +99,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/services" className="text-[#82A386] hover:text-[#4ADE80] font-semibold mt-1 inline-block">
-                  View All {SERVICES.length} Services &rarr;
-                </Link>
-              </li>
             </ul>
           </div>
 
