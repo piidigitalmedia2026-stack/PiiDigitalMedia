@@ -54,16 +54,16 @@ export default function ServicesPage() {
       {/* Hero */}
       <RevealSection className="pt-12 sm:pt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
         <div className="max-w-3xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
-            <Compass className="w-3.5 h-3.5 text-[#6C836F]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] text-xs font-semibold">
+            <Compass className="w-3.5 h-3.5 text-[#82A386]" />
             <span>Our Services</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Digital Marketing Services for Schools.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
             What we offer depends on what each school needs. These are the services we provide.
           </p>
         </div>
@@ -77,11 +77,11 @@ export default function ServicesPage() {
 
           return (
             <div key={cat} className="space-y-8">
-              <div className="flex items-center gap-4 border-b border-[#CBD5C8]/80 pb-4">
-                <span className="text-xl sm:text-2xl font-extrabold text-[#0D151D] tracking-tight">
+              <div className="flex items-center gap-4 border-b border-white/[0.08] pb-4">
+                <span className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                   {cat}
                 </span>
-                <span className="text-xs font-mono font-bold bg-[#EBF1E9] text-[#2F523E] border border-[#DEE7DC] px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-mono font-bold bg-[#132E20] text-[#4ADE80] border border-[#224A32] px-2.5 py-0.5 rounded-full">
                   {catServices.length} {catServices.length === 1 ? "Service" : "Services"}
                 </span>
               </div>
@@ -90,32 +90,32 @@ export default function ServicesPage() {
                 {catServices.map((srv) => (
                   <div
                     key={srv.slug}
-                    className="bg-white rounded-3xl p-7 border border-[#CBD5C8]/70 shadow-xs hover:shadow-xl hover:border-[#6C836F] transition-all flex flex-col justify-between group"
+                    className="bg-[#121820] rounded-3xl p-7 border border-white/[0.08] shadow-md hover:shadow-2xl hover:border-[#82A386]/50 transition-all flex flex-col justify-between group"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-bold text-[#6C836F]">
+                        <span className="text-xs font-bold text-[#82A386]">
                           {srv.shortTitle}
                         </span>
-                        <div className="w-8 h-8 rounded-lg bg-[#EBF1E9] text-[#2F523E] flex items-center justify-center group-hover:bg-[#0D151D] group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-[#17202B] text-[#82A386] flex items-center justify-center group-hover:bg-[#132E20] group-hover:text-[#4ADE80] transition-colors border border-white/[0.06]">
                           <Globe className="w-4 h-4" />
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-bold text-[#0D151D] group-hover:text-[#6C836F] transition-colors">
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#82A386] transition-colors">
                         {srv.title}
                       </h3>
 
-                      <p className="text-slate-600 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                      <p className="text-slate-300 text-xs sm:text-sm mt-2.5 leading-relaxed">
                         {srv.summary}
                       </p>
 
                     </div>
 
-                    <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-end">
+                    <div className="pt-6 mt-4 border-t border-white/[0.08] flex items-center justify-end">
                       <Link
                         href={`/services/${srv.slug}`}
-                        className="text-xs font-bold text-[#6C836F] hover:text-[#0D151D] group-hover:translate-x-1 transition-all inline-flex items-center gap-1"
+                        className="text-xs font-bold text-[#82A386] hover:text-white group-hover:translate-x-1 transition-all inline-flex items-center gap-1"
                       >
                         <span>Full Scope</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -131,7 +131,7 @@ export default function ServicesPage() {
 
       {/* Bottom CTA */}
       <RevealSection className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-        <div className="bg-[#0D151D] text-white rounded-3xl p-8 sm:p-12 border border-[#1C2834] space-y-4">
+        <div className="bg-[#121820] text-white rounded-3xl p-8 sm:p-12 border border-white/[0.08] space-y-4 shadow-2xl">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
             Not Sure Which Services Your School Needs?
           </h2>
@@ -141,10 +141,10 @@ export default function ServicesPage() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="px-6 py-3.5 rounded-full bg-[#FAF9F5] hover:bg-white text-[#0D151D] font-semibold text-sm inline-flex items-center gap-2 transition-all shadow-md"
+              className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] font-bold text-sm inline-flex items-center gap-2 transition-all shadow-md"
             >
               <span>Contact Us</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-[#0B0F14]" />
             </Link>
           </div>
         </div>

@@ -99,58 +99,58 @@ function ServiceStackCard({ service, index, total }: ServiceCardProps) {
           y,
           transformOrigin: "top center",
         }}
-        className="w-full bg-white rounded-3xl p-5 sm:p-8 border border-[#CBD5C8]/90 shadow-[0_16px_40px_rgba(13,21,29,0.08)] hover:shadow-[0_20px_50px_rgba(13,21,29,0.12)] transition-shadow duration-300"
+        className="w-full bg-[#121820] rounded-3xl p-5 sm:p-8 border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-shadow duration-300"
       >
         {/* Top bar: Step Counter & Category */}
-        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#CBD5C8]/50 mb-4 sm:mb-5">
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/[0.08] mb-4 sm:mb-5">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-bold text-[#6C836F] tracking-wider">
+            <span className="font-mono text-xs font-bold text-[#82A386] tracking-wider">
               {numStr} / {totalStr}
             </span>
-            <span className="text-slate-300">•</span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#2F523E] bg-[#EBF1E9] px-2.5 py-0.5 rounded-full">
+            <span className="text-white/20">•</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4ADE80] bg-[#132E20] border border-[#224A32] px-2.5 py-0.5 rounded-full">
               {service.category}
             </span>
           </div>
 
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EBF1E9] text-[#2F523E] flex items-center justify-center shrink-0 border border-[#CBD5C8]/60 shadow-2xs">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#17202B] text-[#82A386] flex items-center justify-center shrink-0 border border-white/[0.08] shadow-2xs">
             <Icon className="w-5 h-5" />
           </div>
         </div>
 
         {/* Title & Core Headline */}
         <div className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-4">
-          <h3 className="text-lg sm:text-2xl font-extrabold text-[#0D151D] tracking-tight">
+          <h3 className="text-lg sm:text-2xl font-extrabold text-white tracking-tight">
             {service.shortTitle}
           </h3>
-          <p className="text-xs sm:text-sm font-semibold text-[#6C836F] leading-snug">
+          <p className="text-xs sm:text-sm font-semibold text-[#82A386] leading-snug">
             {service.headline}
           </p>
         </div>
 
         {/* Summary Description */}
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 sm:mb-5">
+        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 sm:mb-5">
           {service.summary}
         </p>
 
         {/* 3 Core Deliverables Checklist */}
-        <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6 bg-[#FAF9F5] p-3 sm:p-4 rounded-2xl border border-[#CBD5C8]/60">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+        <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6 bg-[#0E141B] p-3 sm:p-4 rounded-2xl border border-white/[0.08]">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
             Core Institutional Deliverables:
           </div>
           {service.deliverables.slice(0, 3).map((item, idx) => (
-            <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#2F523E] shrink-0 mt-0.5" />
+            <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#4ADE80] shrink-0 mt-0.5" />
               <span className="leading-snug">{item}</span>
             </div>
           ))}
         </div>
 
         {/* Action Button & WhatsApp link */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-[#CBD5C8]/40">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-white/[0.08]">
           <Link
             href={`/services/${service.slug}`}
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#0D151D] hover:bg-[#182620] text-white font-semibold text-xs sm:text-sm transition-all shadow-sm hover:shadow group"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] font-semibold text-xs sm:text-sm transition-all shadow-sm hover:shadow group"
           >
             <span>Explore Service Blueprint</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -160,9 +160,9 @@ function ServiceStackCard({ service, index, total }: ServiceCardProps) {
             href={`${WHATSAPP_URL}?text=Hi%20PII%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(service.shortTitle)}%20for%20our%20school.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#2F523E] hover:text-[#0D151D] hover:underline py-1 px-2.5 rounded-full hover:bg-[#FAF9F5] transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#4ADE80] hover:text-white py-1 px-2.5 rounded-full hover:bg-[#132E20] transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#6C836F]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#82A386]" />
             <span>Consult on WhatsApp</span>
           </a>
         </div>
@@ -179,17 +179,17 @@ export function ServicesStackSection() {
         {/* Left Sticky Column on Desktop */}
         <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
           <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#6C836F]" />
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#82A386] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#4ADE80]" />
               <span>Services Directory</span>
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Services Built for{" "}
-              <span className="font-serif italic font-normal text-[#6C836F]">
+              <span className="font-serif italic font-normal text-[#82A386]">
                 Institutions
               </span>
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
               Every digital marketing and web presence touchpoint—from school websites and local search authority to daily reels, creatives, and admission campaigns—managed with academic rigor.
             </p>
           </div>

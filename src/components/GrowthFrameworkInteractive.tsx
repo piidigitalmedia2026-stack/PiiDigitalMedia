@@ -45,12 +45,12 @@ export function GrowthFrameworkInteractive() {
       <div className="sticky top-0 h-svh flex items-center pt-[72px] sm:pt-[80px] lg:pt-[96px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
-          <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F]">The Parent Journey</span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0D151D] tracking-tight mt-2 mb-6 sm:mb-8">
-            Discover → Trust → Enquire → Visit → <span className="font-serif italic font-normal text-[#6C836F]">Enrol</span>
+          <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#82A386]">The Parent Journey</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mt-2 mb-6 sm:mb-8">
+            Discover → Trust → Enquire → Visit → <span className="font-serif italic font-normal text-[#82A386]">Enrol</span>
           </h2>
 
-          <div className="bg-white rounded-3xl p-5 sm:p-10 border border-[#CBD5C8]/80 shadow-md overflow-hidden">
+          <div className="bg-[#121820] rounded-3xl p-5 sm:p-10 border border-white/[0.08] shadow-2xl overflow-hidden">
 
             {/* Stage Tabs */}
             <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
@@ -60,23 +60,23 @@ export function GrowthFrameworkInteractive() {
                   <button
                     key={item.phase}
                     onClick={() => goToStage(idx)}
-                    className={`relative p-2 sm:p-3.5 rounded-xl sm:rounded-2xl text-left transition-colors cursor-pointer ${
+                    className={`relative p-2 sm:p-3.5 rounded-xl sm:rounded-2xl text-left transition-colors cursor-pointer border ${
                       isActive
-                        ? "text-white"
-                        : "bg-[#FAF9F5] text-[#4A5568] hover:bg-[#EBF1E9] hover:text-[#0D151D]"
+                        ? "text-white border-[#224A32]"
+                        : "bg-[#0E141B] text-slate-400 border-white/[0.04] hover:bg-[#17202B] hover:text-white"
                     }`}
                   >
                     {isActive && (
                       <motion.span
                         layoutId="framework-active-tab"
-                        className="absolute inset-0 rounded-xl sm:rounded-2xl bg-[#0D151D] shadow-md"
+                        className="absolute inset-0 rounded-xl sm:rounded-2xl bg-[#132E20] border border-[#224A32] shadow-md"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
-                    <span className={`relative hidden sm:block text-[10px] font-mono font-bold uppercase tracking-wider ${isActive ? "text-[#EBF1E9]" : "text-slate-500"}`}>
+                    <span className={`relative hidden sm:block text-[10px] font-mono font-bold uppercase tracking-wider ${isActive ? "text-[#4ADE80]" : "text-slate-500"}`}>
                       Stage {item.step}
                     </span>
-                    <span className="relative block text-[11px] sm:text-sm font-extrabold tracking-tight sm:mt-1 text-center sm:text-left">
+                    <span className={`relative block text-[11px] sm:text-sm font-extrabold tracking-tight sm:mt-1 text-center sm:text-left ${isActive ? "text-white" : ""}`}>
                       {item.phase}
                     </span>
                   </button>
@@ -85,9 +85,9 @@ export function GrowthFrameworkInteractive() {
             </div>
 
             {/* Scroll progress */}
-            <div className="mt-5 sm:mt-8 h-1 rounded-full bg-slate-100 overflow-hidden">
+            <div className="mt-5 sm:mt-8 h-1 rounded-full bg-white/10 overflow-hidden">
               <motion.div
-                className="h-full w-full origin-left bg-[#6C836F]"
+                className="h-full w-full origin-left bg-[#82A386]"
                 style={{ scaleX: scrollYProgress }}
               />
             </div>
@@ -103,18 +103,18 @@ export function GrowthFrameworkInteractive() {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"
                 >
                   <div className="lg:col-span-7 space-y-3">
-                    <h3 className="text-xl sm:text-3xl font-extrabold text-[#0D151D] tracking-tight leading-snug">
+                    <h3 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
                       {current.headline}
                     </h3>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                       {current.tagline}
                     </p>
                   </div>
 
                   <div className="lg:col-span-5 grid grid-cols-2 gap-2.5">
                     {current.channels.map((ch) => (
-                      <div key={ch} className="flex items-center gap-2 text-xs font-semibold text-slate-800 bg-[#FAF9F5] p-3 rounded-xl border border-[#CBD5C8]/50">
-                        <CheckCircle2 className="w-4 h-4 text-[#6C836F] shrink-0" />
+                      <div key={ch} className="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-[#0E141B] p-3 rounded-xl border border-white/[0.08]">
+                        <CheckCircle2 className="w-4 h-4 text-[#4ADE80] shrink-0" />
                         <span>{ch}</span>
                       </div>
                     ))}

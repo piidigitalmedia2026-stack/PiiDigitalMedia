@@ -76,21 +76,21 @@ export function SchoolPortfolioGrid() {
       >
         {/* Header: OUR SCHOOLS with divider and round arrow buttons */}
         <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#4A5568] shrink-0">
+          <span className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#82A386] shrink-0">
             OUR SCHOOLS
           </span>
-          <div className="flex-1 h-[1px] bg-[#CBD5C8]/80" />
+          <div className="flex-1 h-[1px] bg-white/[0.08]" />
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={() => scrollMobile("left")}
-              className="w-7 h-7 rounded-full bg-[#EBF0E9] hover:bg-[#DEE5DC] text-[#1E293B] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-7 h-7 rounded-full bg-[#121820] hover:bg-[#17202B] text-slate-300 border border-white/[0.08] flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Previous schools"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => scrollMobile("right")}
-              className="w-7 h-7 rounded-full bg-[#EBF0E9] hover:bg-[#DEE5DC] text-[#1E293B] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-7 h-7 rounded-full bg-[#121820] hover:bg-[#17202B] text-slate-300 border border-white/[0.08] flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Next schools"
             >
               <ChevronRight className="w-3.5 h-3.5" />
@@ -99,9 +99,9 @@ export function SchoolPortfolioGrid() {
         </div>
 
         {/* Headline */}
-        <h2 className="text-2xl font-serif font-bold text-[#0D151D] tracking-tight mb-4">
+        <h2 className="text-2xl font-serif font-bold text-white tracking-tight mb-4">
           Real Institutions.{" "}
-          <span className="font-serif italic font-normal text-[#6C836F]">
+          <span className="font-serif italic font-normal text-[#82A386]">
             Real Work.
           </span>
         </h2>
@@ -125,7 +125,7 @@ export function SchoolPortfolioGrid() {
                   href={school.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[230px] sm:w-[260px] h-[175px] rounded-2xl relative overflow-hidden group block shadow-md border border-[#CBD5C8]/50"
+                  className="w-[230px] sm:w-[260px] h-[175px] rounded-2xl relative overflow-hidden group block shadow-md border border-white/[0.08]"
                 >
                   <Image
                     src={school.image}
@@ -146,7 +146,7 @@ export function SchoolPortfolioGrid() {
                         {school.location}
                       </p>
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-[#0D151D]/80 border border-white/20 text-white flex items-center justify-center shrink-0 group-hover:bg-[#182620] transition-colors shadow-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] flex items-center justify-center shrink-0 group-hover:bg-[#1A3D2A] transition-colors shadow-sm">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -154,7 +154,7 @@ export function SchoolPortfolioGrid() {
               ) : (
                 <Link
                   href={school.url || "/work"}
-                  className="w-[230px] sm:w-[260px] h-[175px] rounded-2xl relative overflow-hidden group block shadow-md border border-[#CBD5C8]/50"
+                  className="w-[230px] sm:w-[260px] h-[175px] rounded-2xl relative overflow-hidden group block shadow-md border border-white/[0.08]"
                 >
                   <Image
                     src={school.image}
@@ -175,7 +175,7 @@ export function SchoolPortfolioGrid() {
                         {school.location}
                       </p>
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-[#0D151D]/80 border border-white/20 text-white flex items-center justify-center shrink-0 group-hover:bg-[#182620] transition-colors shadow-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] flex items-center justify-center shrink-0 group-hover:bg-[#1A3D2A] transition-colors shadow-sm">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -194,13 +194,13 @@ export function SchoolPortfolioGrid() {
         >
           <Link
             href="/contact"
-            className="w-full rounded-full bg-[#182620] hover:bg-[#22352c] text-white py-3.5 px-5 flex items-center justify-between shadow-md active:scale-[0.99] transition-transform mt-4"
+            className="w-full rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] py-3.5 px-5 flex items-center justify-between shadow-md active:scale-[0.99] transition-transform mt-4"
           >
-            <MessageSquare className="w-4 h-4 text-white" />
-            <span className="text-[12.5px] font-semibold tracking-wide text-white">
+            <MessageSquare className="w-4 h-4 text-[#0B0F14]" />
+            <span className="text-[12.5px] font-semibold tracking-wide text-[#0B0F14]">
               Let&apos;s Discuss Your School&apos;s Growth
             </span>
-            <ArrowRight className="w-3.5 h-3.5 text-white" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#0B0F14]" />
           </Link>
         </motion.div>
       </motion.div>
@@ -228,14 +228,14 @@ export function SchoolPortfolioGrid() {
                 ? undefined
                 : { y: -6, transition: { duration: 0.25 } }
             }
-            className="group relative bg-white rounded-3xl p-6 sm:p-7 lg:p-8 border border-[#CBD5C8]/80 hover:border-[#6C836F] hover:shadow-xl transition-shadow flex flex-col justify-between overflow-hidden"
+            className="group relative bg-[#121820] rounded-3xl p-6 sm:p-7 lg:p-8 border border-white/[0.08] hover:border-[#82A386]/50 hover:shadow-2xl hover:shadow-[#82A386]/5 transition-all flex flex-col justify-between overflow-hidden"
           >
             {/* Subtle top accent bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#6C836F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#82A386]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
             {/* School Campus Photo Banner */}
             {school.image && (
-              <div className="relative h-44 -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 lg:-mx-8 lg:-mt-8 mb-5 overflow-hidden border-b border-[#CBD5C8]/60">
+              <div className="relative h-44 -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 lg:-mx-8 lg:-mt-8 mb-5 overflow-hidden border-b border-white/[0.08]">
                 <Image
                   src={school.image}
                   alt={school.name}
@@ -243,13 +243,13 @@ export function SchoolPortfolioGrid() {
                   quality={90}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 <div className="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between z-10 text-white">
-                  <span className="text-[11px] font-bold uppercase tracking-wider drop-shadow-sm">
+                  <span className="text-[11px] font-bold uppercase tracking-wider drop-shadow-sm text-slate-200">
                     {school.location}
                   </span>
                   {school.website && (
-                    <span className="text-[10px] bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded-full font-mono text-white">
+                    <span className="text-[10px] bg-[#132E20]/90 border border-[#224A32] text-[#4ADE80] backdrop-blur-xs px-2 py-0.5 rounded-full font-mono">
                       Partner School
                     </span>
                   )}
@@ -260,15 +260,15 @@ export function SchoolPortfolioGrid() {
             <div>
               {/* Header: Icon + Curriculum Tag */}
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#EBF1E9] text-[#2F523E] flex items-center justify-center group-hover:bg-[#0D151D] group-hover:text-white transition-colors duration-300 shrink-0">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#17202B] text-[#82A386] border border-white/[0.06] flex items-center justify-center group-hover:bg-[#132E20] group-hover:text-[#4ADE80] transition-colors duration-300 shrink-0">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 {school.curriculum ? (
-                  <span className="text-[10.5px] sm:text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#EBF1E9] text-[#2F523E] border border-[#DEE7DC]">
+                  <span className="text-[10.5px] sm:text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#132E20] text-[#4ADE80] border border-[#224A32]">
                     {school.curriculum}
                   </span>
                 ) : (
-                  <span className="text-[10.5px] sm:text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#FAF9F5] text-[#6C836F] border border-[#CBD5C8]/60">
+                  <span className="text-[10.5px] sm:text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#17202B] text-[#82A386] border border-white/[0.08]">
                     Partner School
                   </span>
                 )}
@@ -280,41 +280,41 @@ export function SchoolPortfolioGrid() {
                   href={school.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg sm:text-xl font-extrabold text-[#0D151D] hover:text-[#6C836F] transition-colors leading-snug block"
+                  className="text-lg sm:text-xl font-extrabold text-white hover:text-[#82A386] transition-colors leading-snug block"
                 >
                   {school.name}
                 </a>
               ) : (
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#0D151D] group-hover:text-[#6C836F] transition-colors leading-snug">
+                <h3 className="text-lg sm:text-xl font-extrabold text-white group-hover:text-[#82A386] transition-colors leading-snug">
                   {school.name}
                 </h3>
               )}
 
               {/* Location */}
               {school.location && (
-                <p className="text-xs font-medium text-slate-500 mt-2 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#6C836F] shrink-0" />
+                <p className="text-xs font-medium text-slate-400 mt-2 flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#82A386] shrink-0" />
                   <span>{school.location}</span>
                 </p>
               )}
 
               {/* Scope Highlights */}
               {school.scope && school.scope.length > 0 && (
-                <div className="mt-4 pt-4 border-t border-[#E5E9EE]/80 space-y-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#6C836F] block">
+                <div className="mt-4 pt-4 border-t border-white/[0.08] space-y-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#82A386] block">
                     Scope of Partnership
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {school.scope.slice(0, 3).map((item) => (
                       <span
                         key={item}
-                        className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-[#FAF9F5] border border-[#E2E8DF] text-slate-700"
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-[#0E141B] border border-white/[0.08] text-slate-300"
                       >
                         {item}
                       </span>
                     ))}
                     {school.scope.length > 3 && (
-                      <span className="text-[11px] font-semibold px-2 py-1 rounded-lg bg-[#FAF9F5] text-[#6C836F]">
+                      <span className="text-[11px] font-semibold px-2 py-1 rounded-lg bg-[#132E20] text-[#4ADE80]">
                         +{school.scope.length - 3} more
                       </span>
                     )}
@@ -324,13 +324,13 @@ export function SchoolPortfolioGrid() {
             </div>
 
             {/* Card Footer CTA */}
-            <div className="mt-6 pt-4 border-t border-[#E5E9EE]/80 flex items-center justify-between">
+            <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
               {school.website ? (
                 <a
                   href={school.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-bold text-[#0D151D] hover:text-[#6C836F] flex items-center gap-1.5 transition-colors"
+                  className="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
                 >
                   <span>Visit School Website</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -338,13 +338,13 @@ export function SchoolPortfolioGrid() {
               ) : (
                 <Link
                   href="/work"
-                  className="text-xs font-bold text-[#0D151D] hover:text-[#6C836F] flex items-center gap-1.5 transition-colors"
+                  className="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
                 >
                   <span>Explore Partnership</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               )}
-              <div className="w-2 h-2 rounded-full bg-[#6C836F]" title="Active Partner" />
+              <div className="w-2 h-2 rounded-full bg-[#4ADE80]" title="Active Partner" />
             </div>
           </motion.div>
         ))}

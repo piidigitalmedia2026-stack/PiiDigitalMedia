@@ -79,33 +79,33 @@ export default async function ServiceDetailPage({
       {/* Hero Header */}
       <RevealSection className="pt-12 sm:pt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="max-w-4xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] text-xs font-semibold">
             <span>Practice Area: {service.category}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
             {service.title}
           </h1>
 
-          <p className="text-xl sm:text-2xl text-[#6C836F] font-semibold leading-snug">
+          <p className="text-xl sm:text-2xl text-[#82A386] font-semibold leading-snug">
             &ldquo;{service.headline}&rdquo;
           </p>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
             {service.summary}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#service-inquiry"
-              className="px-6 py-3.5 rounded-full bg-[#0D151D] hover:bg-[#6C836F] text-white font-bold text-sm transition-all shadow-md inline-flex items-center gap-2"
+              className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] font-bold text-sm transition-all shadow-md inline-flex items-center gap-2"
             >
               <span>Consult on {service.shortTitle}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-[#0B0F14]" />
             </a>
             <Link
               href="/services"
-              className="px-6 py-3.5 rounded-full bg-[#FAF9F5] hover:bg-[#EBF1E9] text-[#0D151D] border border-[#CBD5C8] font-semibold text-sm transition-colors"
+              className="px-6 py-3.5 rounded-full bg-[#121820] hover:bg-[#17202B] text-white border border-white/[0.12] font-semibold text-sm transition-colors"
             >
               Explore Other Services
             </Link>
@@ -117,26 +117,26 @@ export default async function ServiceDetailPage({
       <RevealSection className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div className="bg-red-50/50 border border-red-200/60 rounded-3xl p-8 space-y-4">
-            <div className="text-xs font-bold uppercase tracking-wider text-red-600">
+          <div className="bg-red-950/25 border border-red-800/40 rounded-3xl p-8 space-y-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-red-400">
               The Challenge
             </div>
-            <h3 className="text-xl font-bold text-slate-900">
+            <h3 className="text-xl font-bold text-white">
               What Usually Goes Wrong
             </h3>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               {service.challenge}
             </p>
           </div>
 
-          <div className="bg-[#EBF1E9]/70 border border-[#DEE7DC] rounded-3xl p-8 space-y-4">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#2F523E]">
+          <div className="bg-[#132E20]/40 border border-[#224A32] rounded-3xl p-8 space-y-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#4ADE80]">
               Our Approach
             </div>
-            <h3 className="text-xl font-bold text-[#0D151D]">
+            <h3 className="text-xl font-bold text-white">
               How We Handle It
             </h3>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               {service.solution}
             </p>
           </div>
@@ -145,25 +145,25 @@ export default async function ServiceDetailPage({
       </RevealSection>
 
       {/* Deliverables & Institutional Value */}
-      <RevealSection className="bg-white/60 py-20 px-4 sm:px-6 lg:px-8 border-y border-[#CBD5C8]/80">
+      <RevealSection className="bg-[#080B0F]/60 py-20 px-4 sm:px-6 lg:px-8 border-y border-white/[0.06]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#6C836F]">What We Deliver</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0D151D] tracking-tight">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#82A386]">What We Deliver</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               Scope of Deliverables
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               What is included depends on the scope agreed with each school.
             </p>
 
             <div className="space-y-3 pt-2">
               {service.deliverables.map((del, i) => (
-                <div key={del} className="p-4 rounded-2xl bg-[#FAF9F5] border border-[#CBD5C8]/80 shadow-xs flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-lg bg-[#EBF1E9] text-[#2F523E] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div key={del} className="p-4 rounded-2xl bg-[#121820] border border-white/[0.08] shadow-sm flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-lg bg-[#132E20] border border-[#224A32] text-[#4ADE80] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                     {i + 1}
                   </div>
-                  <div className="text-sm font-semibold text-[#0D151D]">
+                  <div className="text-sm font-semibold text-white">
                     {del}
                   </div>
                 </div>
@@ -172,12 +172,12 @@ export default async function ServiceDetailPage({
           </div>
 
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-8 rounded-3xl border border-[#CBD5C8]/80 shadow-lg space-y-5">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#186641]">Why It Matters</span>
-              <h3 className="text-lg font-bold text-[#0D151D]">
+            <div className="bg-[#121820] p-8 rounded-3xl border border-white/[0.08] shadow-2xl space-y-5">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#4ADE80]">Why It Matters</span>
+              <h3 className="text-lg font-bold text-white">
                 What the School Gains
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-300 text-sm leading-relaxed">
                 {service.institutionalValue}
               </p>
             </div>
@@ -189,21 +189,21 @@ export default async function ServiceDetailPage({
       {/* 4-Step Process Workflow */}
       <RevealSection className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#6C836F]">Process</span>
-          <h2 className="text-3xl font-extrabold text-[#0D151D] tracking-tight">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#82A386]">Process</span>
+          <h2 className="text-3xl font-extrabold text-white tracking-tight">
             How the Work Runs
           </h2>
-          <p className="text-slate-600 text-sm">
+          <p className="text-slate-400 text-sm">
             Four steps, with the school kept informed at each one.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.process.map((p, idx) => (
-            <div key={p.step} className="bg-white p-7 rounded-3xl border border-[#CBD5C8]/80 shadow-xs space-y-3">
-              <span className="text-xs font-mono font-bold text-[#6C836F] block">Step 0{idx + 1}</span>
-              <h4 className="text-base font-bold text-[#0D151D]">{p.step}</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">{p.desc}</p>
+            <div key={p.step} className="bg-[#121820] p-7 rounded-3xl border border-white/[0.08] shadow-md space-y-3">
+              <span className="text-xs font-mono font-bold text-[#82A386] block">Step 0{idx + 1}</span>
+              <h4 className="text-base font-bold text-white">{p.step}</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>
@@ -212,10 +212,10 @@ export default async function ServiceDetailPage({
       {/* Dedicated Inquiry Form Section */}
       <RevealSection id="service-inquiry" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="mb-8 text-center space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Discuss {service.title} for Your Campus
           </h2>
-          <p className="text-slate-600 text-sm max-w-lg mx-auto">
+          <p className="text-slate-400 text-sm max-w-lg mx-auto">
             Tell us about your school and what you need help with.
           </p>
         </div>

@@ -79,24 +79,24 @@ export default async function InsightDetailPage({
       {/* Hero Header */}
       <RevealSection className="pt-12 sm:pt-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-slate-500">
-            <span className="text-[#2F523E] bg-[#EBF1E9] border border-[#DEE7DC] px-3 py-1 rounded-full">{article.category}</span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#6C836F]" /> {article.readTime}</span>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-slate-400">
+            <span className="text-[#4ADE80] bg-[#132E20] border border-[#224A32] px-3 py-1 rounded-full">{article.category}</span>
+            <span className="flex items-center gap-1 text-slate-400"><Clock className="w-3.5 h-3.5 text-[#82A386]" /> {article.readTime}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
             {article.title}
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">
+          <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-medium">
             {article.excerpt}
           </p>
 
           {/* Author Badge */}
-          <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+          <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Logo size={40} />
-              <div className="text-sm font-bold text-slate-900">PII Digital Media</div>
+              <div className="text-sm font-bold text-white">PII Digital Media</div>
             </div>
           </div>
         </div>
@@ -104,15 +104,15 @@ export default async function InsightDetailPage({
 
       {/* Executive Key Takeaways Box */}
       <RevealSection className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="p-8 rounded-3xl bg-[#EBF1E9]/70 border border-[#DEE7DC] space-y-4">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2F523E]">
-            <Sparkles className="w-4 h-4 text-[#6C836F]" />
+        <div className="p-8 rounded-3xl bg-[#121820] border border-white/[0.08] shadow-2xl space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#4ADE80]">
+            <Sparkles className="w-4 h-4 text-[#82A386]" />
             <span>Key Takeaways</span>
           </div>
           <ul className="space-y-2.5">
             {article.keyTakeaways.map((takeaway) => (
-              <li key={takeaway} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-[#10B981] mt-0.5 shrink-0" />
+              <li key={takeaway} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                <CheckCircle2 className="w-4 h-4 text-[#4ADE80] mt-0.5 shrink-0" />
                 <span className="leading-relaxed">{takeaway}</span>
               </li>
             ))}
@@ -124,19 +124,19 @@ export default async function InsightDetailPage({
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-12">
         {article.contentSections.map((section, idx) => (
           <div key={section.heading} className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0D151D] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {idx + 1}. {section.heading}
             </h2>
-            <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
               {section.body}
             </p>
           </div>
         ))}
 
         {/* Tags */}
-        <div className="pt-8 border-t border-slate-200 flex flex-wrap gap-2">
+        <div className="pt-8 border-t border-white/[0.08] flex flex-wrap gap-2">
           {article.tags.map((tag) => (
-            <span key={tag} className="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-lg">
+            <span key={tag} className="text-xs font-medium bg-[#17202B] border border-white/[0.08] text-slate-300 px-3 py-1 rounded-lg">
               #{tag}
             </span>
           ))}
@@ -146,10 +146,10 @@ export default async function InsightDetailPage({
       {/* Embedded Strategy Consultation Section */}
       <RevealSection className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="mb-6 text-center space-y-2">
-          <h2 className="text-2xl font-extrabold text-slate-950">
+          <h2 className="text-2xl font-extrabold text-white">
             Want Help Putting This into Practice?
           </h2>
-          <p className="text-slate-600 text-sm max-w-md mx-auto">
+          <p className="text-slate-400 text-sm max-w-md mx-auto">
             Tell us about your school and what you need help with.
           </p>
         </div>

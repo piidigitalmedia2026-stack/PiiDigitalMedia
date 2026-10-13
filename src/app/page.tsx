@@ -67,15 +67,15 @@ function SectionHeading({ eyebrow, title, link }: { eyebrow: string; title: Reac
   return (
     <Reveal className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
       <div>
-        <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F]">{eyebrow}</span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D151D] tracking-tight mt-2">
+        <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#82A386]">{eyebrow}</span>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">
           {title}
         </h2>
       </div>
       {link && (
         <Link
           href={link.href}
-          className="text-xs font-bold text-[#0D151D] hover:text-[#6C836F] flex items-center gap-1.5 shrink-0 group"
+          className="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5 shrink-0 group"
         >
           <span>{link.label}</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -96,7 +96,7 @@ export default function HomePage() {
         <div className="hidden md:block">
           <SectionHeading
             eyebrow="Our Schools"
-            title={<>Schools We <span className="font-serif italic font-normal text-[#6C836F]">Work With</span></>}
+            title={<>Schools We <span className="font-serif italic font-normal text-[#82A386]">Work With</span></>}
             link={{ href: "/work", label: "View Our Schools" }}
           />
         </div>
@@ -105,16 +105,16 @@ export default function HomePage() {
       </section>
 
       {/* How we work */}
-      <RevealSection className="bg-[#0D151D] text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <RevealSection className="bg-[#080B0F]/90 text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-y border-white/[0.06] overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F] mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6C836F]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132E20] border border-[#224A32] text-xs font-bold uppercase tracking-[0.15em] text-[#4ADE80] mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80]" />
             <span>Digital Presence & Marketing</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight max-w-4xl">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight max-w-4xl text-white">
             Digital marketing & digital presence,{" "}
-            <span className="text-[#6C836F] font-serif italic font-normal">
+            <span className="text-[#82A386] font-serif italic font-normal">
               made for schools.
             </span>
           </h2>
@@ -129,10 +129,10 @@ export default function HomePage() {
               return (
                 <StaggerItem
                   key={pillar.title}
-                  className="p-6 sm:p-7 rounded-3xl bg-[#141F2A] border border-[#223242] space-y-4 hover:border-[#6C836F] transition-all duration-300 flex flex-col justify-between h-full"
+                  className="p-6 sm:p-7 rounded-3xl bg-[#121820] border border-white/[0.08] space-y-4 hover:border-[#82A386]/50 transition-all duration-300 flex flex-col justify-between h-full"
                 >
                   <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#6C836F]">
+                    <div className="w-10 h-10 rounded-xl bg-[#17202B] border border-white/[0.08] flex items-center justify-center text-[#82A386]">
                       <PillarIcon className="w-5 h-5" />
                     </div>
                     <div className="text-base font-bold text-white">{pillar.title}</div>
@@ -154,14 +154,12 @@ export default function HomePage() {
       {/* Services Stacking Cards */}
       <ServicesStackSection />
 
-
-
       {/* Insights */}
-      <RevealSection className="bg-[#FAF9F5] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-y border-[#CBD5C8]/70">
+      <RevealSection className="bg-[#080B0F]/60 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-y border-white/[0.06]">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             eyebrow="Insights"
-            title={<>Guides for <span className="font-serif italic font-normal text-[#6C836F]">School Leaders</span></>}
+            title={<>Guides for <span className="font-serif italic font-normal text-[#82A386]">School Leaders</span></>}
             link={{ href: "/insights", label: "All Articles" }}
           />
 
@@ -170,16 +168,16 @@ export default function HomePage() {
               <StaggerItem key={art.slug}>
                 <Link
                   href={`/insights/${art.slug}`}
-                  className="h-full bg-white rounded-3xl p-6 sm:p-7 border border-[#CBD5C8]/80 hover:shadow-2xl hover:border-[#6C836F] hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 group cursor-pointer"
+                  className="h-full bg-[#121820] rounded-3xl p-6 sm:p-7 border border-white/[0.08] hover:shadow-2xl hover:border-[#82A386]/50 hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 group cursor-pointer"
                 >
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-500">
-                    <span className="text-[#2F523E] bg-[#EBF1E9] border border-[#DEE7DC] px-2.5 py-1 rounded-md">{art.category}</span>
+                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-400">
+                    <span className="text-[#4ADE80] bg-[#132E20] border border-[#224A32] px-2.5 py-1 rounded-md">{art.category}</span>
                     <span>{art.readTime}</span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#0D151D] group-hover:text-[#6C836F] transition-colors leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#82A386] transition-colors leading-snug">
                     {art.title}
                   </h3>
-                  <span className="mt-auto text-xs font-bold text-[#0D151D] group-hover:text-[#6C836F] inline-flex items-center gap-1.5 transition-colors">
+                  <span className="mt-auto text-xs font-bold text-slate-300 group-hover:text-white inline-flex items-center gap-1.5 transition-colors">
                     Read article
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -193,9 +191,9 @@ export default function HomePage() {
       {/* FAQ */}
       <RevealSection className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <Reveal className="text-center mb-10">
-          <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F]">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D151D] tracking-tight mt-2">
-            Common <span className="font-serif italic font-normal text-[#6C836F]">Questions</span>
+          <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#82A386]">FAQ</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">
+            Common <span className="font-serif italic font-normal text-[#82A386]">Questions</span>
           </h2>
         </Reveal>
         <FAQSection />
@@ -206,15 +204,15 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
           <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-28">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C836F]">Get in Touch</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
-              Tell Us About <span className="font-serif italic font-normal text-[#6C836F]">Your School</span>
+            <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#82A386]">Get in Touch</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Tell Us About <span className="font-serif italic font-normal text-[#82A386]">Your School</span>
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
               Share what you need and we will get back to you.
             </p>
 
-            <div className="p-4 rounded-2xl bg-[#0D151D] text-white text-xs flex items-center justify-between border border-[#223242] shadow-md">
+            <div className="p-4 rounded-2xl bg-[#121820] text-white text-xs flex items-center justify-between border border-white/[0.08] shadow-md">
               <div>
                 <span className="text-slate-400 block text-[11px]">Direct Line & Desk</span>
                 <a href={`tel:${CONTACT_PHONE_E164}`} className="font-bold text-white text-sm hover:underline">{CONTACT_PHONE_DISPLAY}</a>
@@ -223,9 +221,9 @@ export default function HomePage() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] font-bold text-xs hover:bg-[#DEE7DC] transition-colors flex items-center gap-1.5 shadow-2xs"
+                className="px-3.5 py-1.5 rounded-lg bg-[#132E20] border border-[#224A32] text-[#4ADE80] font-bold text-xs hover:bg-[#1A3D2A] transition-colors flex items-center gap-1.5 shadow-2xs"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#6C836F]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80]" />
                 <span>WhatsApp</span>
               </a>
             </div>

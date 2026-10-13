@@ -30,16 +30,16 @@ export default function WorkIndexPage() {
       {/* Hero */}
       <RevealSection className="pt-12 sm:pt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
         <div className="max-w-3xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF1E9] border border-[#DEE7DC] text-[#2F523E] text-xs font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-[#6C836F]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] text-xs font-semibold">
+            <Sparkles className="w-3.5 h-3.5 text-[#82A386]" />
             <span>Our Schools</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0D151D] tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Schools We Work With.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
             PII Digital Media currently works with {SCHOOLS.length} schools. Each school&apos;s content, campaigns, and reports are managed separately.
           </p>
         </div>
@@ -51,10 +51,10 @@ export default function WorkIndexPage() {
           {SCHOOLS.map((school) => (
             <div
               key={school.slug}
-              className="bg-white rounded-3xl overflow-hidden border border-[#CBD5C8]/80 shadow-md hover:shadow-xl hover:border-[#6C836F] transition-all flex flex-col"
+              className="bg-[#121820] rounded-3xl overflow-hidden border border-white/[0.08] shadow-xl hover:shadow-2xl hover:border-[#82A386]/50 transition-all flex flex-col"
             >
               {school.image && (
-                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100 border-b border-[#CBD5C8]/50">
+                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900 border-b border-white/[0.08]">
                   <Image
                     src={school.image}
                     alt={school.name}
@@ -62,10 +62,10 @@ export default function WorkIndexPage() {
                     className="object-cover transition-transform duration-500 hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
                   {school.location && (
-                    <div className="absolute bottom-3 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-[#0D151D] flex items-center gap-1.5 shadow-sm">
-                      <MapPin className="w-3 h-3 text-[#6C836F]" />
+                    <div className="absolute bottom-3 left-4 bg-[#0B0F14]/90 border border-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-white flex items-center gap-1.5 shadow-sm">
+                      <MapPin className="w-3 h-3 text-[#82A386]" />
                       <span>{school.location}</span>
                     </div>
                   )}
@@ -74,13 +74,13 @@ export default function WorkIndexPage() {
 
               <div className="p-7 sm:p-9 flex flex-col gap-5 flex-1">
                 <div className="space-y-2">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#0D151D]">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white">
                     {school.website ? (
                       <a
                         href={school.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-[#6C836F] transition-colors"
+                        className="hover:text-[#82A386] transition-colors"
                       >
                         {school.name}
                       </a>
@@ -91,12 +91,12 @@ export default function WorkIndexPage() {
 
                 <div className="flex flex-wrap items-center gap-2">
                   {school.location && (
-                    <span className="text-xs text-slate-600 flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#6C836F]" /> {school.location}
+                    <span className="text-xs text-slate-400 flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-[#82A386]" /> {school.location}
                     </span>
                   )}
                   {school.curriculum && (
-                    <span className="text-[11px] font-bold bg-[#EBF1E9] text-[#2F523E] border border-[#DEE7DC] px-2.5 py-0.5 rounded-full">
+                    <span className="text-[11px] font-bold bg-[#132E20] text-[#4ADE80] border border-[#224A32] px-2.5 py-0.5 rounded-full">
                       {school.curriculum}
                     </span>
                   )}
@@ -104,14 +104,14 @@ export default function WorkIndexPage() {
               </div>
 
               {school.scope.length > 0 && (
-                <div className="pt-4 border-t border-slate-100 space-y-2">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-700">
+                <div className="pt-4 border-t border-white/[0.08] space-y-2">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#82A386]">
                     What we handle
                   </div>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
                     {school.scope.map((item) => (
                       <li key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#4ADE80] shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -124,7 +124,7 @@ export default function WorkIndexPage() {
                   href={school.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto text-xs font-bold text-[#0D151D] hover:text-[#6C836F] inline-flex items-center gap-1.5"
+                  className="mt-auto text-xs font-bold text-slate-300 hover:text-white inline-flex items-center gap-1.5 transition-colors"
                 >
                   <span>Visit school website</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -138,7 +138,7 @@ export default function WorkIndexPage() {
 
       {/* Bottom CTA */}
       <RevealSection className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-        <div className="bg-[#0D151D] text-white rounded-3xl p-8 sm:p-12 border border-[#1C2834] space-y-4">
+        <div className="bg-[#121820] text-white rounded-3xl p-8 sm:p-12 border border-white/[0.08] space-y-4 shadow-2xl">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
             Want Us to Manage Your School&apos;s Digital Marketing?
           </h2>
@@ -148,10 +148,10 @@ export default function WorkIndexPage() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="px-6 py-3.5 rounded-full bg-[#FAF9F5] hover:bg-white text-[#0D151D] font-semibold text-sm inline-flex items-center gap-2 transition-all shadow-md"
+              className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] font-bold text-sm inline-flex items-center gap-2 transition-all shadow-md"
             >
               <span>Get in Touch</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-[#0B0F14]" />
             </Link>
           </div>
         </div>
