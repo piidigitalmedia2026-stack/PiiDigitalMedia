@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ArrowRight, Menu, X, Globe } from "lucide-react";
+import { ChevronDown, ArrowRight, Menu, X, Globe, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SERVICES, WHATSAPP_URL, MAIN_SERVICES } from "@/data/content";
+import { SERVICES, WHATSAPP_URL, MAIN_SERVICES, IS_COMING_SOON, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/data/content";
 import { Logo } from "@/components/Logo";
 
 export function Header() {
@@ -37,13 +37,25 @@ export function Header() {
               </span>
             </div>
           </Link>
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-8 h-8 rounded-full bg-[#1A232D] flex items-center justify-center text-white hover:bg-[#22303E] transition-colors cursor-pointer shrink-0 ml-2"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
-          </button>
+          {IS_COMING_SOON ? (
+            <a
+              href={`${WHATSAPP_URL}?text=Hi%20Pii%20Digital%20Media%2C%20I%20would%20like%20to%20discuss%20marketing%20for%20our%20school.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-[30px] px-3 rounded-full text-[11px] font-semibold text-[#4ADE80] bg-[#132E20] border border-[#224A32] flex items-center gap-1.5 shrink-0 shadow-sm"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+              <span>WhatsApp</span>
+            </a>
+          ) : (
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="w-8 h-8 rounded-full bg-[#1A232D] flex items-center justify-center text-white hover:bg-[#22303E] transition-colors cursor-pointer shrink-0 ml-2"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
+            </button>
+          )}
         </div>
 
         {/* Desktop Header (lg:) */}
@@ -62,76 +74,83 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Center Navigation Links */}
-          <nav className="flex items-center gap-3 xl:gap-8 mx-4 whitespace-nowrap">
-            <Link 
-              href="/about" 
-              className={`text-[13px] font-medium transition-colors ${
-                pathname === "/about" ? "text-white font-semibold" : "text-slate-300 hover:text-white"
-              }`}
-            >
-              About Agency
-            </Link>
-
-            {/* Services Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setServicesDropdown(true)}
-              onMouseLeave={() => setServicesDropdown(false)}
-            >
-              <button 
-                className={`flex items-center gap-1 text-[13px] font-medium transition-colors cursor-pointer ${
-                  pathname.startsWith("/services") ? "text-white font-semibold" : "text-slate-300 hover:text-white"
-                }`}
-                aria-expanded={servicesDropdown}
-              >
-                <span>Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${servicesDropdown ? "rotate-180" : ""}`} />
-              </button>
-
-              {servicesDropdown && (
-                <div className="absolute top-full left-0 w-[520px] bg-[#121820] rounded-2xl shadow-2xl border border-white/[0.1] p-4 grid grid-cols-2 gap-2 mt-2 z-50 whitespace-normal backdrop-blur-xl">
-                  <div className="col-span-2 pb-2 mb-1 border-b border-white/[0.08] flex items-center justify-between">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Main Services</span>
-                    <Link href="/services" className="text-xs text-[#82A386] hover:underline font-medium">All {SERVICES.length} Services &rarr;</Link>
-                  </div>
-                  {MAIN_SERVICES.map((srv) => (
-                    <Link 
-                      key={srv.slug}
-                      href={`/services/${srv.slug}`}
-                      className="p-2.5 rounded-xl hover:bg-[#1A232D] transition-colors flex items-start gap-2.5 min-w-0 group"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-[#132E20] text-[#4ADE80] flex items-center justify-center shrink-0 mt-0.5 border border-[#224A32]">
-                        <Globe className="w-3.5 h-3.5" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-xs font-semibold text-white group-hover:text-[#82A386] transition-colors">{srv.shortTitle}</div>
-                        <p className="text-[10.5px] text-slate-400 truncate">{srv.summary}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
+          {/* Center Navigation Links or Coming Soon Status */}
+          {IS_COMING_SOON ? (
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] text-xs font-semibold shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+              <span>Institutional Platform Launching Soon</span>
             </div>
+          ) : (
+            <nav className="flex items-center gap-3 xl:gap-8 mx-4 whitespace-nowrap">
+              <Link 
+                href="/about" 
+                className={`text-[13px] font-medium transition-colors ${
+                  pathname === "/about" ? "text-white font-semibold" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                About Agency
+              </Link>
 
-            <Link 
-              href="/work" 
-              className={`text-[13px] font-medium transition-colors ${
-                pathname.startsWith("/work") ? "text-white font-semibold" : "text-slate-300 hover:text-white"
-              }`}
-            >
-              Our Schools
-            </Link>
+              {/* Services Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setServicesDropdown(true)}
+                onMouseLeave={() => setServicesDropdown(false)}
+              >
+                <button 
+                  className={`flex items-center gap-1 text-[13px] font-medium transition-colors cursor-pointer ${
+                    pathname.startsWith("/services") ? "text-white font-semibold" : "text-slate-300 hover:text-white"
+                  }`}
+                  aria-expanded={servicesDropdown}
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${servicesDropdown ? "rotate-180" : ""}`} />
+                </button>
 
-            <Link 
-              href="/insights" 
-              className={`text-[13px] font-medium transition-colors ${
-                pathname.startsWith("/insights") ? "text-white font-semibold" : "text-slate-300 hover:text-white"
-              }`}
-            >
-              Insights & Guides
-            </Link>
-          </nav>
+                {servicesDropdown && (
+                  <div className="absolute top-full left-0 w-[520px] bg-[#121820] rounded-2xl shadow-2xl border border-white/[0.1] p-4 grid grid-cols-2 gap-2 mt-2 z-50 whitespace-normal backdrop-blur-xl">
+                    <div className="col-span-2 pb-2 mb-1 border-b border-white/[0.08] flex items-center justify-between">
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Main Services</span>
+                      <Link href="/services" className="text-xs text-[#82A386] hover:underline font-medium">All {SERVICES.length} Services &rarr;</Link>
+                    </div>
+                    {MAIN_SERVICES.map((srv) => (
+                      <Link 
+                        key={srv.slug}
+                        href={`/services/${srv.slug}`}
+                        className="p-2.5 rounded-xl hover:bg-[#1A232D] transition-colors flex items-start gap-2.5 min-w-0 group"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-[#132E20] text-[#4ADE80] flex items-center justify-center shrink-0 mt-0.5 border border-[#224A32]">
+                          <Globe className="w-3.5 h-3.5" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-xs font-semibold text-white group-hover:text-[#82A386] transition-colors">{srv.shortTitle}</div>
+                          <p className="text-[10.5px] text-slate-400 truncate">{srv.summary}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link 
+                href="/work" 
+                className={`text-[13px] font-medium transition-colors ${
+                  pathname.startsWith("/work") ? "text-white font-semibold" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                Our Schools
+              </Link>
+
+              <Link 
+                href="/insights" 
+                className={`text-[13px] font-medium transition-colors ${
+                  pathname.startsWith("/insights") ? "text-white font-semibold" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                Insights & Guides
+              </Link>
+            </nav>
+          )}
 
           {/* Right Action Buttons */}
           <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0 whitespace-nowrap">
@@ -150,21 +169,31 @@ export function Header() {
               <span className="sr-only xl:hidden">WhatsApp</span>
             </a>
 
-            {/* Book Strategy Call Button */}
-            <Link 
-              href="/contact" 
-              className="h-[34px] px-4 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] text-xs font-bold tracking-normal transition-all flex items-center gap-1.5 shadow-sm"
-            >
-              <span>Book Strategy Call</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            {/* Book Strategy Call or Call Button */}
+            {IS_COMING_SOON ? (
+              <a 
+                href={`tel:${CONTACT_PHONE_E164}`}
+                className="h-[34px] px-4 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] text-xs font-bold tracking-normal transition-all flex items-center gap-1.5 shadow-sm"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#0B0F14]" />
+                <span>{CONTACT_PHONE_DISPLAY}</span>
+              </a>
+            ) : (
+              <Link 
+                href="/contact" 
+                className="h-[34px] px-4 rounded-full bg-white hover:bg-slate-200 text-[#0B0F14] text-xs font-bold tracking-normal transition-all flex items-center gap-1.5 shadow-sm"
+              >
+                <span>Book Strategy Call</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            )}
           </div>
         </div>
       </div>
 
       {/* Mobile Drawer with Smooth Animation */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {!IS_COMING_SOON && mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
