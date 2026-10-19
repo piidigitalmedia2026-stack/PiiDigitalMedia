@@ -44,7 +44,7 @@ export function ComingSoonView() {
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#132E20] border border-[#224A32] text-[#4ADE80] text-xs font-semibold mb-6 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                <span>Launching Soon • Admissions 2026-27</span>
+                <span>Launching Soon</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-5">
@@ -140,7 +140,7 @@ export function ComingSoonView() {
             {/* What We Are Actively Handling */}
             <div className="p-6 rounded-2xl bg-[#121820] border border-white/[0.08]">
               <span className="text-xs font-bold uppercase tracking-wider text-[#82A386] block mb-3">
-                Core Services Open for 2026-27 Intake
+                Core Services Open for School Partnerships
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-center gap-2.5 text-xs text-slate-300">
