@@ -11,7 +11,7 @@ export const WHATSAPP_URL = "https://wa.me/917989995014";
 export const CONTACT_EMAIL = "reach@piidigitalmedia.com";
 export const CONTACT_LOCATION = "Hyderabad, Telangana";
 
-export const IS_COMING_SOON = true;
+export const IS_COMING_SOON = false;
 
 export const SERVICES: ServiceDetail[] = [
   {
