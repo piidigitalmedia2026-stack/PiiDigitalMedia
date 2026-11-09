@@ -22,7 +22,7 @@ const newsreader = Newsreader({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
 });
 
 const playfair = Playfair_Display({
