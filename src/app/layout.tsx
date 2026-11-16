@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Newsreader, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, Newsreader, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -14,7 +14,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const newsreader = Newsreader({
@@ -25,12 +32,11 @@ const newsreader = Newsreader({
   weight: "variable",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -72,14 +78,14 @@ export default function RootLayout({
   const orgSchema = generateOrganizationSchema();
 
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${newsreader.variable} ${playfair.variable} scroll-smooth antialiased`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} scroll-smooth antialiased h-full`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#0B0F14] text-[#F1F5F9] font-sans selection:bg-[#82A386] selection:text-[#0B0F14]">
+      <body className="min-h-screen flex flex-col bg-[#000000] text-[#ffffff] font-sans selection:bg-white selection:text-black">
         <Header />
         <main className="flex-1">
           {children}
