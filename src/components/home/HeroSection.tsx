@@ -34,13 +34,22 @@ export function HeroSection() {
         {/* 2 CTAs */}
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
           {/* Primary CTA: White BG + Black Text */}
-          <Link
-            href="/contact"
-            className="w-full sm:w-auto h-11 sm:h-12 px-7 sm:px-8 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(255,255,255,0.25)] hover:shadow-[0_0_35px_rgba(255,255,255,0.35)] active:scale-[0.98]"
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById("contact");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+              } else {
+                window.location.hash = "contact";
+              }
+            }}
+            className="w-full sm:w-auto h-11 sm:h-12 px-7 sm:px-8 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(255,255,255,0.25)] hover:shadow-[0_0_35px_rgba(255,255,255,0.35)] active:scale-[0.98] cursor-pointer"
           >
             <span>Book Free Call</span>
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
 
           {/* Secondary CTA: Transparent + Soft Border */}
           <Link

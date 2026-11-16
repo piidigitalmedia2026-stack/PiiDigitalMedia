@@ -112,7 +112,7 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
 
         <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto mt-2">
           <a
-            href="https://wa.me/917989995014?text=Hi%20Pii%20Digital%20Media%2C%20I%20just%20submitted%20an%20enquiry%20for%20our%20school."
+            href={`https://wa.me/917989995014?text=Hi%20Pii%20Digital%20Media%2C%20I%20just%20booked%20a%20strategy%20consultation%20for%20${encodeURIComponent(formData.institutionName)}%20(Ref%3A%20${referenceId}).`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[12px] bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-colors shadow-sm"
@@ -276,16 +276,16 @@ export function ContactForm({ defaultService, defaultSegment }: ContactFormProps
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-11 sm:h-12 rounded-[8px] bg-white hover:bg-zinc-200 text-black font-semibold text-xs tracking-tight transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full h-11 sm:h-12 rounded-[8px] bg-white hover:bg-zinc-200 text-black font-semibold text-xs sm:text-sm tracking-tight transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-[0.99]"
           >
             {loading ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-black" />
-                <span>Submitting Consultation Request...</span>
+                <span>Booking Strategy Consultation...</span>
               </>
             ) : (
               <>
-                <span>Submit Strategy Request</span>
+                <span>Book Free Consultation</span>
                 <ArrowRight className="w-4 h-4 text-black" />
               </>
             )}

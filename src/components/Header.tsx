@@ -21,6 +21,17 @@ export function Header() {
     }
   };
 
+  const handleBookCallClick = (e: React.MouseEvent) => {
+    setMobileMenuOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById("contact");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-[#000000]/80 backdrop-blur-xl border-b border-[#ffffff1f] transition-all">
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[68px] flex items-center justify-between">
@@ -145,7 +156,8 @@ export function Header() {
 
           {/* Primary CTA: Book Free Call (White bg + Black text) */}
           <Link 
-            href="/contact" 
+            href="/#contact" 
+            onClick={handleBookCallClick}
             className="h-8 sm:h-9 px-2.5 sm:px-4 rounded-[10px] sm:rounded-[12px] bg-white hover:bg-zinc-200 text-black text-[11px] sm:text-xs font-semibold tracking-tight transition-all flex items-center gap-1 sm:gap-1.5 shadow-sm active:scale-[0.98]"
           >
             <span>Book Free Call</span>
@@ -222,8 +234,8 @@ export function Header() {
                   <span>WhatsApp Desk</span>
                 </a>
                 <Link 
-                  href="/contact" 
-                  onClick={() => setMobileMenuOpen(false)}
+                  href="/#contact" 
+                  onClick={handleBookCallClick}
                   className="w-full py-3 text-center rounded-[12px] bg-white text-black font-semibold text-xs flex items-center justify-center gap-1.5 shadow-sm min-h-[44px]"
                 >
                   <span>Book Free Call</span>
